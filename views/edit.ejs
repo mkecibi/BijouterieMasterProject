@@ -1,0 +1,19 @@
+<% include _header %>
+
+<h1>Edit your profile</h1>
+
+<form action="/edit" method="post">
+  <input name="currentUser.username" type="text" class="form-control" placeholder="Display name" value="<%= currentUser.username || "" %>">
+  <input name="currentUser.username" type="text" class="form-control" placeholder="Username"  value="<%= currentUser.username || "" %>"  required autofocus>
+  <input name="currentUser.password" type="password" class="form-control" placeholder="Password"  value="<%= currentUser.password || "" %>" required>
+  <input name="currentUser.email" type="text" class="form-control" placeholder="email"   value="<%= currentUser.email || "" %>" required autofocus>
+  <input name="currentUser.bio" type="text" class="form-control" placeholder="birthDay"  value="<%= currentUser.bio || "" %>" required autofocus>
+
+
+
+
+  <textarea name="bio" class="form-control" placeholder="Tell us about yourself!"><%= currentUser.bio || "" %></textarea>
+  <input type="submit" value="Update" class="btn btn-primary btn-block">
+</form>
+
+<% include _footer %>
