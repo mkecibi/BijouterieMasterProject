@@ -23,12 +23,33 @@ class ProfileRoute extends routeBase.BaseRoute {
         });
 
         router.post("/edit", this.prototype.ensureAuthenticated, function(req, res, next) {
-            req.user.username = req.body.username;
-            req.user.email = req.body.email;
-            req.user.password = req.body.password;
-            req.user.bio = req.body.bio;
-            req.user.client_id = req.body.client_id;
-            req.user.isactive = req.body.isactive;
+
+               db.User.forge({id: req.body.id})
+                .fetch({require: true})
+                .then(function (user) {
+                user.save({
+                        username:  req.body.username || user.get('username'),
+                        email: req.body.email || user.get('email'),
+                        password:req.body.password || user.get('password'),
+                        bio:req.body.bio || user.get('bio'),
+                        client_id:req.body.client_id || user.get('client_id'),
+                        isactive:req.body.isactive || user.get('isactive')
+                })
+                .then(function () {
+                    res.json({error: false, data: {message: 'User details updated'}});
+                })
+                .catch(function (err) {
+                    res.status(500).json({error: true, data: {message: err.message}});
+                });
+                })
+                .catch(function (err) {
+                res.status(500).json({error: true, data: {message: err.message}});
+                });
+
+
+
+
+
            /* profileVML.save(req.user).then(function (err) {
                     if (err) {
                         next(err);
@@ -38,14 +59,14 @@ class ProfileRoute extends routeBase.BaseRoute {
                     res.redirect("/edit");
                 });*/
 
-           req.user.save(function(err) {
+          /*req.user.save(function(err) {
               if (err) {
                 next(err);
                 return;
               }
               req.flash("info", "Profile updated!");
               res.redirect("/edit");
-            });
+            });*/
         });
     }
 }
