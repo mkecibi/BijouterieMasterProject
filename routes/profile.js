@@ -1,8 +1,9 @@
 
 "use strict";
 const routeBase = require("./routes");
+const  profileViewModel = require('./../modelview/profile.js');
+var profileVML = profileViewModel.ProfileViewModel.getInstance() ;
 class ProfileRoute extends routeBase.BaseRoute {
-
 
     constructor() {
         super();
@@ -22,9 +23,22 @@ class ProfileRoute extends routeBase.BaseRoute {
         });
 
         router.post("/edit", this.prototype.ensureAuthenticated, function(req, res, next) {
-            req.user.displayName = req.body.displayname;
+            req.user.username = req.body.username;
+            req.user.email = req.body.email;
+            req.user.password = req.body.password;
             req.user.bio = req.body.bio;
-            req.user.save(function(err) {
+            req.user.client_id = req.body.client_id;
+            req.user.isactive = req.body.isactive;
+           /* profileVML.save(req.user).then(function (err) {
+                    if (err) {
+                        next(err);
+                        return;
+                    }
+                    req.flash("info", "Profile updated!");
+                    res.redirect("/edit");
+                });*/
+
+           req.user.save(function(err) {
               if (err) {
                 next(err);
                 return;
