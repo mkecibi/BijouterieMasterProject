@@ -24,7 +24,7 @@ class ProfileRoute extends routeBase.BaseRoute {
 
         router.post("/edit", this.prototype.ensureAuthenticated, function(req, res, next) {
 
-               db.User.forge({id: req.body.id})
+           /*   db.User.forge({id: req.body.id})
                 .fetch({require: true})
                 .then(function (user) {
                 user.save({
@@ -44,20 +44,18 @@ class ProfileRoute extends routeBase.BaseRoute {
                 })
                 .catch(function (err) {
                 res.status(500).json({error: true, data: {message: err.message}});
+            });*/
+            
+           profileVML.save(db,req.body).then(function () {
+                            req.flash("info", "Profile updated!");
+                            res.redirect("/edit");
+                })
+                .catch(function (err) {
+                    res.status(500).json({error: true, data: {message: err.message}});
+                })
+                 .catch(function (err) {
+                res.status(500).json({error: true, data: {message: err.message}});
                 });
-
-
-
-
-
-           /* profileVML.save(req.user).then(function (err) {
-                    if (err) {
-                        next(err);
-                        return;
-                    }
-                    req.flash("info", "Profile updated!");
-                    res.redirect("/edit");
-                });*/
 
           /*req.user.save(function(err) {
               if (err) {
