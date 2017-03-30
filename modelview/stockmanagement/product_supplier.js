@@ -4,7 +4,8 @@ class ProductSupplierRoute extends routeBase.BaseRoute {
     constructor() {
         super();
     }
-
+//**************************************************************************************** */
+//**********************************User*********************************************** */
     user(req, res, next) {
         this.title = "Home | Tour of Heros";
         let options = {
@@ -12,9 +13,9 @@ class ProductSupplierRoute extends routeBase.BaseRoute {
         };
         this.render(req, res, "xxxxxxxxx", options);
     }
-
     static create(router,db) {
-
     }
 }
+//**************************************************************************************** */
+//********************************************************************************* */
 exports.ProductSupplierRoute = ProductSupplierRoute;

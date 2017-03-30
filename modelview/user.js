@@ -6,7 +6,8 @@ class UserViewModel {
     constructor() {
       	console.log("Inside UserViewModel Constructor");
     }
-    
+//**************************************************************************************** */
+//**********************************getUsers******************************************* */    
 //   getUsers(db,callback){
    getUsers(db){
             return  db.User.Users.forge()
@@ -19,7 +20,8 @@ class UserViewModel {
                             return err ;//callback(''); 
                         });
     }
-
+//**************************************************************************************** */
+//**********************************getByUsername*********************************************** */
    getByUsername(db,username){
           return   db.User.query({where: {username:username}})
                     .fetch()
@@ -32,7 +34,8 @@ class UserViewModel {
                         return err;
                     })
     }
-
+//**************************************************************************************** */
+//***************************** Add Update******************************************** */
     save(db,body){
                 return db.User.forge({id: body.id})
                                 .fetch({require: true})

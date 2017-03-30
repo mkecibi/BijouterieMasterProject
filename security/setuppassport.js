@@ -1,9 +1,14 @@
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
- var db = require('./../config/db.js');
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const db = require('./../config/db.js');
+const userViewModel = require('./../modelview/user.js');
+const userVML = userViewModel.UserViewModel.getInstance() ;
 
 
 module.exports = function() {
+
+//**************************************************************************************** */
+//**********************************serializa and  deserialize *********************************************** */
 
   passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -16,6 +21,9 @@ module.exports = function() {
           done(null, user.toJSON());
 		  });
 	  });
+
+//**************************************************************************************** */
+//**********************************passport login*********************************************** */
 
   passport.use("login", new LocalStrategy(function(username, password, done) {
 		                     console.log("login passport username " + username + password);

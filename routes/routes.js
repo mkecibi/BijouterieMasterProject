@@ -1,6 +1,7 @@
 "use strict";
 class BaseRoute {
-
+//**************************************************************************************** */
+//**********************************Create router*********************************************** */
     static create(router) {
         router.use(function(req, res, next) {
           res.locals.currentUser = req.user;
@@ -14,7 +15,8 @@ class BaseRoute {
         this.title = "Tour of Heros";
         this.scripts = [];
     }
-
+//**************************************************************************************** */
+//**********************************Authentication passport*********************************************** */
    ensureAuthenticated  (req, res, next) {
     if (req.isAuthenticated()) {
         next();
@@ -23,11 +25,14 @@ class BaseRoute {
         res.redirect("/login");
     }
     }
-
+//**************************************************************************************** */
+//**********************************add script to views *********************************************** */
     addScript(src) {
         this.scripts.push(src);
         return this;
     }
+//**************************************************************************************** */
+//**********************************main render *********************************************** */
     render(req, res, view, options) {
         res.locals.BASE_URL = "/";
         res.locals.scripts = this.scripts;

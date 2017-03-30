@@ -1,12 +1,13 @@
 "use strict";
 const routeBase = require("./routes");
 const  userViewModel = require('./../modelview/user.js');
-var userVML = userViewModel.UserViewModel.getInstance() ;
+const userVML = userViewModel.UserViewModel.getInstance() ;
 class UserRoute extends routeBase.BaseRoute {
     constructor() {
         super();
     }
-
+//**************************************************************************************** */
+//**********************************user*********************************************** */
     user(req, res, next) {
         this.title = "Home | Tour of Heros";
         let options = {
@@ -14,6 +15,8 @@ class UserRoute extends routeBase.BaseRoute {
         };
         this.render(req, res, "index", options);
     }
+//**************************************************************************************** */
+//**********************************Create router*********************************************** */
     static create(router,db) {
         router.get("/", this.prototype.ensureAuthenticated,function(req, res, next) {
                     userVML.getUsers(db).then(function (collection) {

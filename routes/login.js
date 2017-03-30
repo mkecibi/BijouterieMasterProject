@@ -1,13 +1,15 @@
 "use strict";
 const routeBase = require("./routes");
 const  userViewModel = require('./../modelview/user.js');
-var userVML = userViewModel.UserViewModel.getInstance() ;
+const userVML = userViewModel.UserViewModel.getInstance() ;
 
 class LoginRoute extends routeBase.BaseRoute {
     constructor() {
         super();
     }
 
+//**************************************************************************************** */
+//**********************************Lofin*********************************************** */
     login(req, res, next) {
         this.title = "Home | Tour of Heros";
         let options = {
@@ -15,7 +17,8 @@ class LoginRoute extends routeBase.BaseRoute {
         };
         this.render(req, res, "index", options);
     }
-
+//**************************************************************************************** */
+//**********************************Create*********************************************** */
     static create(router,passport,db) {
         router.get("/login", function(req, res) {
             res.render("login");
@@ -35,7 +38,8 @@ class LoginRoute extends routeBase.BaseRoute {
         router.get("/signup", function(req, res) {
             res.render("signup");
         });
-
+//**************************************************************************************** */
+//**********************************router*********************************************** */
         router.post("/signup", function(req, res, next) {
             var username = req.body.username;
                 userVML.getByUsername(db,username).then(function (user) {

@@ -5,7 +5,10 @@ var modeles = {}
 
 // User model
 var Client = Bookshelf.Model.extend({
-    tableName: 'clients'
+    tableName: 'clients',
+    users: function () {
+       return this.hasMany(User, 'client_id');
+    }
 });
 
 Client.Clients = Bookshelf.Collection.extend({
