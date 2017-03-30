@@ -15,7 +15,6 @@ class UserRoute extends routeBase.BaseRoute {
         this.render(req, res, "index", options);
     }
     static create(router,db) {
-
         router.get("/", this.prototype.ensureAuthenticated,function(req, res, next) {
                     userVML.getUsers(db).then(function (collection) {
                             res.render("index", { users: collection.toJSON() });
@@ -24,10 +23,11 @@ class UserRoute extends routeBase.BaseRoute {
                             res.status(500).json({error: true, data: {message: err.message}});
                         });
         });
-       router.get("/users/:username", function(req, res, next) {
+      router.get("/users/:username", function(req, res, next) {
                   var username = req.params.username;
+
                         userVML.getByUsername(db,username).then(function (user) {
-                                return  res.render("profile",{user:user.toJSON()});
+                                  return  res.render("profile",{user:user.toJSON()});
                             })
                             .otherwise(function (err) {
                                 res.status(500).json({error: true, data: {message: err.message}});

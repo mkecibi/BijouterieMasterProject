@@ -18,7 +18,9 @@ module.exports = function() {
 	  });
 
   passport.use("login", new LocalStrategy(function(username, password, done) {
-		db.User.query({where: {username:username}, where:{password:password}})
+		                     console.log("login passport username " + username + password);
+		//db.User.query({where: {username:username}, where:{password:password}})
+				db.User.query({where: {username:username}}).query({where: {password:password}})
 		.fetch()
 		.then(function (user) {
 		  if (!user) {

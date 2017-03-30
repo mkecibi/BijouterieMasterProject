@@ -1,8 +1,8 @@
 
 "use strict";
 const routeBase = require("./routes");
-const  profileViewModel = require('./../modelview/profile.js');
-var profileVML = profileViewModel.ProfileViewModel.getInstance() ;
+const  userViewModel = require('./../modelview/user.js');
+var userVML = userViewModel.UserViewModel.getInstance() ;
 class ProfileRoute extends routeBase.BaseRoute {
 
     constructor() {
@@ -23,30 +23,8 @@ class ProfileRoute extends routeBase.BaseRoute {
         });
 
         router.post("/edit", this.prototype.ensureAuthenticated, function(req, res, next) {
-
-           /*   db.User.forge({id: req.body.id})
-                .fetch({require: true})
-                .then(function (user) {
-                user.save({
-                        username:  req.body.username || user.get('username'),
-                        email: req.body.email || user.get('email'),
-                        password:req.body.password || user.get('password'),
-                        bio:req.body.bio || user.get('bio'),
-                        client_id:req.body.client_id || user.get('client_id'),
-                        isactive:req.body.isactive || user.get('isactive')
-                })
-                .then(function () {
-                    res.json({error: false, data: {message: 'User details updated'}});
-                })
-                .catch(function (err) {
-                    res.status(500).json({error: true, data: {message: err.message}});
-                });
-                })
-                .catch(function (err) {
-                res.status(500).json({error: true, data: {message: err.message}});
-            });*/
             
-           profileVML.save(db,req.body).then(function () {
+           userVML.save(db,req.body).then(function () {
                             req.flash("info", "Profile updated!");
                             res.redirect("/edit");
                 })
@@ -56,15 +34,6 @@ class ProfileRoute extends routeBase.BaseRoute {
                  .catch(function (err) {
                 res.status(500).json({error: true, data: {message: err.message}});
                 });
-
-          /*req.user.save(function(err) {
-              if (err) {
-                next(err);
-                return;
-              }
-              req.flash("info", "Profile updated!");
-              res.redirect("/edit");
-            });*/
         });
     }
 }

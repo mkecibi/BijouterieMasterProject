@@ -1,5 +1,8 @@
 "use strict";
 const routeBase = require("./routes");
+const  userViewModel = require('./../modelview/user.js');
+var userVML = userViewModel.UserViewModel.getInstance() ;
+
 class LoginRoute extends routeBase.BaseRoute {
     constructor() {
         super();
@@ -35,34 +38,22 @@ class LoginRoute extends routeBase.BaseRoute {
 
         router.post("/signup", function(req, res, next) {
             var username = req.body.username;
-            var password = req.body.password;
-            var email = req.body.email;
-            var bio = req.body.bio;
-                    db.User.query({where: {username:username}})
-                    .fetch()
-                    .then(function (user) {
-                    if (user) {
-                    req.flash("error", "User already exists");
-                    return res.redirect("/signup");
-                    }
-                    else {
-                        db.User.forge({
-                            username: username,
-                            password: password,
-                            email:email,
-                            bio:bio
-                            })
-                            .save()
-                            .then(function (user) {
-                                return res.redirect("/login");
+                userVML.getByUsername(db,username).then(function (user) {
+                            if (user) {
+                            req.flash("error", "User already exists");
+                            return res.redirect("/signup");
+                            }
+                            else {
+                                userVML.save(db,req.body).then(function (user) {
+                                        return res.redirect("/login");
+                                    })
+                                    .otherwise(function (err) {
+                                    res.status(500).json({error: true, data: {message: err.message}});
+                                    });
+                                }
                             })
                             .otherwise(function (err) {
-                            res.status(500).json({error: true, data: {message: err.message}});
-                            });
-                        }
-                    })
-                    .otherwise(function (err) {
-                res.status(500).json({error: true, data: {message: err.message}});
+                        res.status(500).json({error: true, data: {message: err.message}});
                     })
         });
     }
