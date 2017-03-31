@@ -2,6 +2,15 @@
 const routeBase = require("./routes");
 const  userViewModel = require('./../modelview/user.js');
 const userVML = userViewModel.UserViewModel.getInstance() ;
+
+const  clientViewModel = require('./../modelview/client.js');
+const clientVML = clientViewModel.ClientViewModel.getInstance() ;
+const  supplierViewModel = require('./../modelview/supplier.js');
+const supplierVML = supplierViewModel.SupplierViewModel.getInstance() ;
+
+
+
+
 class UserRoute extends routeBase.BaseRoute {
     constructor() {
         super();
@@ -36,6 +45,44 @@ class UserRoute extends routeBase.BaseRoute {
                                 res.status(500).json({error: true, data: {message: err.message}});
                             });
                         });
+
+                        
+
+router.get('/clients/:id',function (req, res) {
+    console.log("Je suis la");
+    clientVML.getByClientid(db,req.params.id)
+     .then(function (client) {
+      if (!client) {
+        res.status(404).json({error: true, data: {}});
+      }
+      else {
+        res.json({error: false, data: client.toJSON()});
+      }
+    })
+    .catch(function (err) {
+      res.status(500).json({error: true, data: {message: err.message}});
+    });
+  });
+
+
+router.get('/suppliers/:id',function (req, res) {
+    console.log("supplierVML Je suis la");
+    supplierVML.getBySupplierWithproducts_suppliersid(db,req.params.id)
+     .then(function (supplier) {
+      if (!supplier) {
+        res.status(404).json({error: true, data: {}});
+      }
+      else {
+        res.json({error: false, data: supplier.toJSON()});
+      }
+    })
+    .catch(function (err) {
+      res.status(500).json({error: true, data: {message: err.message}});
+    });
+  });
+
+
+
     }
 }
 exports.UserRoute = UserRoute;

@@ -6,7 +6,7 @@ var modeles = {}
 // User model
 var Supplier = Bookshelf.Model.extend({
     tableName: 'suppliers',
-    branches_suppliers: function () {
+    products_suppliers: function () {
        return this.hasMany(ProductSupplier, 'supplier_id');
     }
 });

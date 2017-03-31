@@ -21,8 +21,11 @@ var db = {};
 db.Bookshelf = Bookshelf;
 
 //Models/tables
-var modeles = require('../models/user.js')(Bookshelf);
+var usermodeles = require('../models/user.js')(Bookshelf);
+var clientmodeles = require('../models/client.js')(Bookshelf);
+var suppliermodeles = require('../models/supplier.js')(Bookshelf);
 
-db.User  = modeles.User  
-
+db.User  = usermodeles.User  
+db.Client  = clientmodeles.Client  
+db.Supplier  = suppliermodeles.Supplier  
 module.exports = db;

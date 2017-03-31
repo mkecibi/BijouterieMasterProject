@@ -1,6 +1,9 @@
 'use strict';
 module.exports = (Bookshelf) => {
-  
+
+var usermodeles = require('./user.js')(Bookshelf);
+var User  = usermodeles.User  
+ 
 var modeles = {}
 
 // User model
