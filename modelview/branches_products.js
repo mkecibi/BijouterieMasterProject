@@ -1,15 +1,15 @@
 "use strict";
-class ProductSupplierViewModel {
+class BrancheProductViewModel {
         static getInstance() {
-        return new ProductSupplierViewModel();
+        return new BrancheProductViewModel();
     }
     constructor() {
-      	console.log("Inside ProductSupplierViewModel Constructor");
+      	console.log("Inside BrancheProductViewModel Constructor");
     }
 //**************************************************************************************** */
 //**********************************getUsers******************************************* */    
-   getproduct_supplier(db){
-            return  db.ProductSupplier.ProductSuppliers.forge()
+   getbranches_products(db){
+            return  db.BrancheProduct.BrancheProducts.forge()
                         .fetch()
                         .then(function (collection) {
                             return collection
@@ -20,27 +20,27 @@ class ProductSupplierViewModel {
     }
 //**************************************************************************************** */
 //**********************************getByProductSupplierid*********************************************** */
-   getByProductSupplierid(db,id){
-          return   db.ProductSupplier.query({where: {id:id}})
+   getByBrancheProductid(db,id){
+          return   db.BrancheProduct.query({where: {id:id}})
                     .fetch()
-                    .then(function (productsupplier) {
-                    if (productsupplier) {
-                        return  productsupplier;
-                    }
-                    })
-                    .otherwise(function (err) {
-                        return err;
-                    });
+                    .then(function (brancheproduct) {
+                        if (brancheproduct) {
+                            return  brancheproduct;
+                        }
+                        })
+                        .otherwise(function (err) {
+                            return err;
+                        });
     }
 
 //**************************************************************************************** */
 //**********************************getByClientid Withrelated Users*********************************************** */
-   getBySProductSupplierWithrelatedByid(db,id){
-          return   db.ProductSupplier.forge({id:id})
-                        .fetch({withRelated: ['products_suppliers']})
-                        .then(function (productsupplier) {
-                            if (productsupplier) {
-                                return  productsupplier;
+   getByBrancheProductWithrelatedByid(db,id){
+          return   db.BrancheProduct.forge({id:id})
+                        .fetch({withRelated: ['']})
+                        .then(function (brancheproduct) {
+                            if (brancheproduct) {
+                                return  brancheproduct;
                             }
                             })
                             .otherwise(function (err) {
@@ -50,16 +50,17 @@ class ProductSupplierViewModel {
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
     save(db,body){
-                return db.ProductSupplier.forge({id: body.id})
+                return db.BrancheProduct.forge({id: body.id})
                                 .fetch({require: true})
-                                .then(function (productsupplier) {
-                                productsupplier.save({
-                                        product_id:  body.product_id || productsupplier.get('product_id'),
-                                        supplier_id: body.supplier_id || productsupplier.get('supplier_id'),
-                                        isactive:body.isactive || productsupplier.get('isactive')
+                                .then(function (brancheproduct) {
+                                brancheproduct.save({
+                                        product_id:  body.product_id || brancheproduct.get('product_id'),
+                                        branche_id: body.branche_id || brancheproduct.get('branche_id'),
+                                        quantity:  body.quantity || brancheproduct.get('quantity'),
+                                        isactive:body.isactive || brancheproduct.get('isactive')
                                 })
                                 .then(function () {
-                                      console.log("Productsupplier saved with success");
+                                      console.log("BrancheProduct saved with success");
                                 })
                                 .catch(function (err) {
                                     return err;
@@ -72,4 +73,4 @@ class ProductSupplierViewModel {
 
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
-exports.ProductSupplierViewModel = ProductSupplierViewModel;
+exports.BrancheProductViewModel = BrancheProductViewModel;
