@@ -62,7 +62,7 @@ class BrancheViewModel {
                                         isactive:body.isactive || branche.get('isactive')
                                 })
                                 .then(function () {
-                                      console.log("branche saved with success");
+                                    console.log("branche saved with success");
                                 })
                                 .catch(function (err) {
                                     return err;
