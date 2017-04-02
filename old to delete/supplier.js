@@ -1,6 +1,8 @@
 'use strict';
 module.exports = (Bookshelf) => {
-  
+var product_suppliermodeles = require('./product_supplier.js')(Bookshelf);
+var ProductSupplier  = product_suppliermodeles.ProductSupplier  
+
 var modeles = {}
 
 // User model
@@ -11,7 +13,7 @@ var Supplier = Bookshelf.Model.extend({
     }
 });
 
-Product.Suppliers = Bookshelf.Collection.extend({
+Supplier.Suppliers = Bookshelf.Collection.extend({
   model: Supplier
 });
 

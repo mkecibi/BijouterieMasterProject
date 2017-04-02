@@ -6,9 +6,13 @@ const userVML = userViewModel.UserViewModel.getInstance() ;
 const  clientViewModel = require('./../modelview/client.js');
 const clientVML = clientViewModel.ClientViewModel.getInstance() ;
 const  supplierViewModel = require('./../modelview/supplier.js');
-const supplierVML = supplierViewModel.SupplierViewModel.getInstance() ;
+const supplierVML = supplierViewModel.SupplierViewModel.getInstance();
 
+const  productViewModel = require('./../modelview/product.js');
+const productVML = productViewModel.ProductViewModel.getInstance() ;
 
+const  brancheViewModel = require('./../modelview/branche.js');
+const brancheVML = brancheViewModel.BrancheViewModel.getInstance() ;
 
 
 class UserRoute extends routeBase.BaseRoute {
@@ -82,7 +86,38 @@ router.get('/suppliers/:id',function (req, res) {
   });
 
 
+router.get('/products/:id',function (req, res) {
+    console.log("productVML Je suis la");
+    productVML.getBySProductWithAll(db,req.params.id)
+     .then(function (product) {
+      if (!product) {
+        res.status(404).json({error: true, data: {}});
+      }
+      else {
+        res.json({error: false, data: product.toJSON()});
+      }
+    })
+    .catch(function (err) {
+      res.status(500).json({error: true, data: {message: err.message}});
+    });
+  });
 
+
+router.get('/branches/:id',function (req, res) {
+    console.log("brancheVML Je suis la");
+    brancheVML.getByBrancheWithproducts_brancheid(db,req.params.id)
+     .then(function (branche) {
+      if (!branche) {
+        res.status(404).json({error: true, data: {}});
+      }
+      else {
+        res.json({error: false, data: branche.toJSON()});
+      }
+    })
+    .catch(function (err) {
+      res.status(500).json({error: true, data: {message: err.message}});
+    });
+  });
     }
 }
 exports.UserRoute = UserRoute;
