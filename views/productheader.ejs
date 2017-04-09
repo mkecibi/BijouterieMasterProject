@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen ElekNet - Settings (Options) Page</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.10.css" rel="stylesheet">
+<link href="css/font-awesome.css" rel="stylesheet">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/ToggleNewPersonalCode.js"></script>
+<script src="js/bootstrap-tabcollapse.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+
+  <div class="container breadCrumb ">
+    <ul>
+      <li><a href="#">My Account</a></li>
+      <li>Settings (Options)</li>
+    </ul>
+    <div id="pageTitle" class="cellTable">
+      <div class="glyphicon glyphicon-play fl redTxt cellTableCell"></div>
+      <div class="cellTableCell redTxt">
+        <h1>Settings (options)</h1>
+      </div>
+      <div class="cellTableCell lightText"><span>|</span></div>
+      <div class="cellTableCell lightText">
+        <h5>Change password and current session information</h5>
+      </div>
+    </div>
+    <div class="space0 clearfix btmBorder"></div>
+  </div>
+  <div class="container pageContent settings">
+    
+    <div class="col-sm-12 noPadLR">
+
+
+      <ul id="myTab" class="nav nav-tabs">
+
+        <li><a href="#accountInfo" data-toggle="tab">Account Information</a></li>
+        <li><a href="#changePass" data-toggle="tab">Change Password</a></li>
+        <li><a href="#preferences" data-toggle="tab">Preferences</a></li>
+
+      </ul>
+      <div id="myTabContent" class="tab-content allBorder padAll col-sm-12" >
+
+        <div class="tab-pane fade in active  padAll col-sm-12" id="accountInfo">
+
+  	<div class="col-sm-6 noPadLR">
+		<a  href="#changePass"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="Add New Address"></a>
+	</div>
+
+       <div class="col-xs-12 noPadLR responTable">
+  		<div class="col-xs-12 noPadLR">
+  			<table>
+  			<thead>
+  				<tr>
+  					<th>Name</th>
+  					<th>ImageUrl</th>
+  					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Testing Company</td>
+						<td>http://images.unoapp.com/boxdata/asset59502/images/biwapearls_62960_188L.jpg</td>
+						<td>
+							<div class="col-xs-3 col-md-6 noPadLR center"><a href="#"><i class="fa fa-edit"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR center"><a href="#"><i class="fa fa-trash-o"></i></a></div>
+						</td>
+					</tr>
+					<tr>
+						<td>Testing Company</td>
+						<td>http://images.unoapp.com/boxdata/asset59502/images/biwapearls_62960_188L.jpg</td>
+						<td>
+							<div class="col-xs-3 col-md-6 noPadLR center"><a href="#"><i class="fa fa-edit"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR center"><a href="#"><i class="fa fa-trash-o"></i></a></div>
+						</td>
+					</tr>
+					<tr>
+						<td>Testing Company</td>
+						<td>http://images.unoapp.com/boxdata/asset59502/images/biwapearls_62960_188L.jpg</td>
+						<td>
+							<div class="col-xs-3 col-md-6 noPadLR center"><a href="#"><i class="fa fa-edit"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR center"><a href="#"><i class="fa fa-trash-o"></i></a></div>
+						</td>
+					</tr>
+				</tbody>	
+			</table>
+		</div>
+	</div>
+
+
+        </div>
+
+        <div class="tab-pane fade in padAll  col-sm-12" id="changePass">
+               <div class="">
+
+                    <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
+                <div class="form-group col-sm-12">
+                    <p>(*) Fields are mandatory</p>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <input type="text"  id="name" name="name"  placeholder="Name (*)" tabindex="1">
+                    <label class="fa fa-address-card"></label>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <input type="text" id="iamgeurl" name="iamgeurl" placeholder="Iamgeurl" tabindex="1">
+                    <label class="glyphicon glyphicon-user"></label>
+                    </div>
+                    <div class="clearfix space0"></div>
+
+                    <div class="form-group col-md-3 col-xs-6 noMarB">
+                    <input class="submitBtn redBtn center" name="" value="Save" type="submit">
+                    </div>
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="tab-pane fade in padAll col-sm-12" id="preferences">
+
+        </div>
+		</div>
+      </div>
+      <script type="text/javascript">
+    $('#myTab').tabCollapse();
+        	   </script> 
+  </div>
+  <div class="clearfix space0"></div>
+  </div>
+</div>
+</body>
+</html>

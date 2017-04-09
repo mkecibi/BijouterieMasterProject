@@ -12,6 +12,8 @@ const db = require('./config/db.js');
 const setUpPassport = require("./security/setuppassport");
 const loginroute = require("./routes/login");
 const userroute = require("./routes/user");
+const productroute = require("./routes/product");
+const productheaderroute = require("./routes/productheader");
 const profileroute = require("./routes/profile");
 const baseroute = require("./routes/routes");
 
@@ -63,6 +65,8 @@ class Server {
                 loginroute.LoginRoute.create(router,passport,db);
                 userroute.UserRoute.create(router,db);
                 profileroute.ProfileRoute.create(router,db);
+                productroute.ProductRoute.create(router,db);
+                productheaderroute.ProductHeaderRoute.create(router,db);
                 this.app.use(router);
     }
 }

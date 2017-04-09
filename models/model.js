@@ -75,7 +75,18 @@ ProductSupplier.ProductSuppliers = Bookshelf.Collection.extend({
 });
 //**********************  ProductSupplier ********************************* */
 //**********************  Supplier ********************************* */
+//**********************  ProductHeader ********************************* */
+var ProductHeader = Bookshelf.Model.extend({
+    tableName: 'productheaders',
+    products: function () {
+       return this.hasMany(Product, 'productheader_id');
+    }
+});
 
+ProductHeader.ProductHeaders = Bookshelf.Collection.extend({
+  model: ProductHeader
+});
+//**********************  ProductHeader ********************************* */
 //**********************  Product ********************************* */
 var Product = Bookshelf.Model.extend({
     tableName: 'products',
@@ -130,6 +141,7 @@ User.Users = Bookshelf.Collection.extend({
 modeles.User  = User
 modeles.Client  = Client
 modeles.Supplier  = Supplier
+modeles.ProductHeader  = ProductHeader
 modeles.Product  = Product
 modeles.ProductSupplier  = ProductSupplier
 modeles.BrancheUser  = BrancheUser

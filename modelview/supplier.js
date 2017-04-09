@@ -36,6 +36,7 @@ class SupplierViewModel {
 //**************************************************************************************** */
 //**********************************getByClientid Withrelated Users*********************************************** */
    getBySupplierWithproducts_suppliersid(db,id){
+         // db.Bookshelf = require(db.env.ORM_NAME)(db.knex);
           return   db.Supplier.forge({id:id})
                         .fetch({withRelated: ['products_suppliers']})
                         .then(function (supplier) {
@@ -48,7 +49,10 @@ class SupplierViewModel {
                         })
                         .catch(function (err) {
                             return err;
-                    });
+                          }).finally(function () {
+                            //  console.log("Knex end connection db.Bookshelf.knex.destroy() ")
+                           // db.Bookshelf.connection.destroy();
+                            });
     }
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
