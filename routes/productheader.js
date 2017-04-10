@@ -21,7 +21,7 @@ class ProductHeaderRoute extends routeBase.BaseRoute {
 
         router.get("/productheaders", this.prototype.ensureAuthenticated,function(req, res, next) {
                     productheaderVML.getProductsHeaders(db).then(function (collection) {
-                            res.render("productheader", { users: collection.toJSON() });
+                            res.render("productheader", { productheaders: collection.toJSON() });
                         })
                         .otherwise(function (err) {
                             res.status(500).json({error: true, data: {message: err.message}});
