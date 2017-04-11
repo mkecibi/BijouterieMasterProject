@@ -27,6 +27,34 @@ class ProductHeaderRoute extends routeBase.BaseRoute {
                             res.status(500).json({error: true, data: {message: err.message}});
                         });
         });
+
+        router.post("/productheaderedit", this.prototype.ensureAuthenticated, function(req, res, next) {
+            
+           productheaderVML.save(db,req.body).then(function () {
+                            req.flash("info", "Profile updated!");
+                            res.redirect("/productheaders");
+                })
+                .catch(function (err) {
+                    res.status(500).json({error: true, data: {message: err.message}});
+                })
+                 .catch(function (err) {
+                res.status(500).json({error: true, data: {message: err.message}});
+                });
+        });
+
+        router.post("/createproductheader", this.prototype.ensureAuthenticated,function(req, res, next) {
+
+            productheaderVML.saveNew(db,req.body).then(function () {
+                                req.flash("info", "Profile updated!");
+                                res.redirect("/productheaders");
+                    })
+                    .catch(function (err) {
+                        res.status(500).json({error: true, data: {message: err.message}});
+                    })
+                    .catch(function (err) {
+                    res.status(500).json({error: true, data: {message: err.message}});
+                    });
+        });
     }
 }
 exports.ProductHeaderRoute = ProductHeaderRoute;

@@ -42,16 +42,18 @@
 
       <ul id="myTab" class="nav nav-tabs">
 
-        <li ><a href="#accountInfo" data-toggle="tab">Account Information</a></li>
+        <li><a href="#display" data-toggle="tab">Display All Categories</a></li>
+        <li><a href="#add" data-toggle="tab">Add</a></li>
+        <li><a href="#edit" data-toggle="tab">Edit</a></li>
 
 
       </ul>
       <div id="myTabContent" class="tab-content allBorder padAll col-sm-12" >
 
-        <div class="tab-pane fade in active  padAll col-sm-12" id="accountInfo">
+        <div class="tab-pane fade in active  padAll col-sm-12" id="display">
 
   	<div class="col-sm-6 noPadLR">
-		<a  href="#changePass"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="Add New Address"></a>
+		<a  href="#add"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="Add New Address"></a>
 	</div>
 
        <div class="col-xs-12 noPadLR responTable">
@@ -67,11 +69,11 @@
 				<tbody>
         <% productheaders.forEach(function(productheader) { %>
 					<tr>
-						<td><%= productheader.name %></td>
-						<td><%= productheader.imageurl %></td>
+						<td ><%= productheader.name %></td>
+						<td ><%= productheader.imageurl %></td>
 						<td>
-							<div class="col-xs-3 col-md-6 noPadLR center"><a href="#preferences" data-toggle="tab" onclick="fillEdit('<%= productheader.name %>','<%= productheader.imageurl %>')" ><i class="fa fa-edit"></i></a></div>
-							<div class="col-xs-3 col-md-6 noPadLR center"><a href="#"><i class="fa fa-trash-o"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>')" ><i class="fa fa-edit"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR "><a href="#"><i class="fa fa-trash-o"></i></a></div>
 						</td>
 					</tr>
           <% }) %>
@@ -79,81 +81,83 @@
 			</table>
 		</div>
 	</div>
-
-
-        </div>
-
-        <div class="tab-pane fade in padAll  col-sm-12" id="changePass">
+  </div>
+  <div class="tab-pane fade in padAll  col-sm-12" id="add">
                <div class="">
 
-                    <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
+               <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
                 <div class="form-group col-sm-12">
                     <p>(*) Fields are mandatory</p>
                     </div>
-                    <div class="form-group col-md-6">
-                    <input type="text"  id="name" name="name"  placeholder="Name (*)" tabindex="1">
-                    <label class="fa fa-address-card"></label>
-                    </div>
-                    <div class="form-group col-md-6">
-                    <input type="text" id="iamgeurl" name="iamgeurl" placeholder="Iamgeurl" tabindex="1">
-                    <label class="glyphicon glyphicon-user"></label>
-                    </div>
-                    <div class="clearfix space0"></div>
+                    <form action="/createproductheader" method="post">
+                        <div class="form-group col-md-6">
+                       <input  type="text" id="nameadd" name="nameadd" value="" tabindex="1"  >
+                        <label class="fa fa-address-card"></label>
+                        </div>
+                        <div class="form-group col-md-6">
+                        <input  type="text" id="imgurladd" name="imgurladd" value="" tabindex="1"  >
+                        <label class="glyphicon glyphicon-user"></label>
+                        </div>
+                        <div class="clearfix space0"></div>
 
-                    <div class="form-group col-md-3 col-xs-6 noMarB">
-                    <input class="submitBtn redBtn center" name="" value="Save" type="submit">
-                    </div>
-                    </div>
+                        <div class="form-group col-md-3 col-xs-6 noMarB">
+                        <input class="submitBtn redBtn center" name="" value="Save" type="submit">
+                        </div>
+                        </div>
+                    </form>
                 </div>
   	<div class="col-sm-6 noPadLR">
-		<a  href="#accountInfo"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back"></a>
+		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back"></a>
 	</div>
         </div>
 
-        <div class="tab-pane fade in padAll col-sm-12" id="preferences">
+        <div class="tab-pane fade in padAll col-sm-12" id="edit">
                <div class="">
 
                     <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
                 <div class="form-group col-sm-12">
                     <p>(*) Fields are mandatory</p>
                     </div>
-                    <div  class="form-group col-md-6">
-                    <input type="text"  id="namecible" name="namecible"  value="dd" tabindex="1">
-                    <label class="fa fa-address-card"></label>
-                    </div>
-                    <div  class="form-group col-md-6">
-                    <input type="text" id="Iamgeurlcible" name="Iamgeurlcible" value="dd"  tabindex="1">
-                    <label class="glyphicon glyphicon-user"></label>
-                    </div>
-                    <div class="clearfix space0"></div>
+                   <form action="/productheaderedit" method="post">
+                        <div  class="form-group col-md-6">
+                        <input type="hidden" id="idedit"  name="idedit" value="">
+                        <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"  >
+                        <label class="fa fa-address-card"></label>
+                        </div>
+                        <div  class="form-group col-md-6">
+                        <input type="text" id="Iamgeurledit" name="Iamgeurledit" value=""  tabindex="1">
+                        <label class="glyphicon glyphicon-user"></label>
+                        </div>
+                        <div class="clearfix space0"></div>
 
-                    <div class="form-group col-md-3 col-xs-6 noMarB">
-                    <input class="submitBtn redBtn center" name="" value="Save" type="submit">
-                    </div>
-                    </div>
+                        <div class="form-group col-md-3 col-xs-6 noMarB">
+                        <input class="submitBtn redBtn center" name="" value="Save" type="submit">
+                        </div>
+                        </div>
+                 </form>
                 </div>
 
      	<div class="col-sm-6 noPadLR">
-		<a  href="#accountInfo"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back"></a>
+		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back"></a>
 	</div>             
         </div>
 		</div>
       </div>
       <script type="text/javascript">
-    $('#myTab').tabCollapse();
-
-function fillEdit(trvalue1,trvalue2)
-{
-
-alert( $( "#namecible" ).val())
-
-}
-
-
+        $('#myTab').tabCollapse();
      </script> 
   </div>
   <div class="clearfix space0"></div>
   </div>
 </div>
+
+<script>
+function fillEdit(param1,param2,param3) {
+    document.getElementById("idcible").value = param1
+    alert(document.getElementById("idcible").value )
+    document.getElementById("namecible").value = param2
+    document.getElementById("Iamgeurlcible").value = param3
+}
+</script>
 </body>
 </html>

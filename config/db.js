@@ -19,12 +19,12 @@ var knex = require('knex')({
         max: 7,
         idleTimeoutMillis: 3000,
         afterCreate: function (connection, callback) {
-            console.log(' >>>>>>>>>>>>>>>>>>>>>>> afterCreate', connection.__knexUid);
+          //  console.log(' >>>>>>>>>>>>>>>>>>>>>>> afterCreate', connection.__knexUid);
             connection.on('error', function (err) {
                 // the handler on one connection is sometime called several times
                 // this.removeAllListeners();
                 // https://github.com/tgriesser/knex/issues/1691
-                console.log(' >>>>>>>>>>>>>>>>>>>>>>> err', this.__knexUid);
+               // console.log(' >>>>>>>>>>>>>>>>>>>>>>> err', this.__knexUid);
             });
             callback(null, connection);
         }

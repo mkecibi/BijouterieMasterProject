@@ -36,15 +36,15 @@ class ProductHeaderViewModel {
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
     save(db,body){
-                return db.ProductHeader.forge({id: body.id})
+                return db.ProductHeader.forge({id: body.idedit})
                                 .fetch({require: true})
                                 .then(function (productheader) {
                                 productheader.save({
-                                        name:  body.name || productheader.get('name'),
-                                        imageurl: body.imageurl || productheader.get('imageurl')
+                                        name:  body.nameedit || productheader.get('name'),
+                                        imageurl: body.Iamgeurledit || productheader.get('imageurl')
                                 })
                                 .then(function () {
-                                      console.log("Product saved with success");
+                                      console.log("ProductHeader saved with success");
                                 })
                                 .catch(function (err) {
                                     return err;
@@ -53,7 +53,30 @@ class ProductHeaderViewModel {
                                 .catch(function (err) {
                                 return err;});
                 };
+
+
+    saveNew(db,body) {
+        return    db.ProductHeader.forge({
+            name:  body.nameadd,
+            imageurl: body.imgurladd
+            })
+            .save()
+            .then(function (productheader) {
+            console.log("ProductHeader saved with success");
+        //   return  productheader
+            })
+            .otherwise(function (err) {
+                console.log("error to  saved : " + err.message);
+            return err;
+            }); 
+        };
 }
+
+	
+
+
+
+
 
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
