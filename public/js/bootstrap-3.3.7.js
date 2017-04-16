@@ -2091,7 +2091,6 @@ if (typeof jQuery === 'undefined') {
       selector = $this.attr('href')
       selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
-
     if ($this.parent('li').hasClass('active')) return
 
     var $previous = $ul.find('.active:last a')

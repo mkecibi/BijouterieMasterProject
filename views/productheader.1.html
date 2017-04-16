@@ -52,8 +52,8 @@
 
         <div class="tab-pane fade in active  padAll col-sm-12" id="display">
 
-  	<div class="col-sm-1 noPadLR">
-		<a  href="#add"  data-toggle="tab" onclick="ShowOnlyAdd()"><input class="simpleBtn" type="submit" name="" value="Add New Address"></a>
+  	<div class="col-sm-6 noPadLR">
+		<a  href="#add"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="Add New Address"></a>
 	</div>
   <div class="pageContent address">
        <div class="col-xs-12 noPadLR responTable">
@@ -72,7 +72,7 @@
 						<td ><%= productheader.name %></td>
 						<td ><%= productheader.imageurl %></td>
 						<td>
-							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>')" ><i class="fa fa-edit"></i></a></div>
 							<div class="col-xs-3 col-md-6 noPadLR "><a href="#"><i class="fa fa-trash-o"></i></a></div>
 						</td>
 					</tr>
@@ -108,7 +108,7 @@
                     </form>
                 </div>
   	<div class="col-sm-6 noPadLR">
-		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back" onclick="ShowOnlyDisplay()"></a>
+		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back"></a>
 	</div>
         </div>
 
@@ -139,7 +139,7 @@
       </div>
 
      	<div class="col-sm-6 noPadLR">
-		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back" onclick="ShowOnlyDisplay()"></a>
+		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back"></a>
 	</div>             
         </div>
 		</div>
@@ -154,27 +154,10 @@
 
 <script>
 function fillEdit(param1,param2,param3) {
+
     document.getElementById("idedit").value = param1
     document.getElementById("nameedit").value = param2
     document.getElementById("Iamgeurledit").value = param3
-}
-function ShowOnlyEdit() {
-    $('#myTab a[href="#edit"]').tab('show');
-    $('#display-collapse').collapse('hide');
-    $('#add-collapse').collapse('hide');
-    $('#edit-collapse').collapse('show');
-}
-function ShowOnlyDisplay() {
-    $('#myTab a[href="#display"]').tab('show');
-    $('#add-collapse').collapse('hide');
-    $('#edit-collapse').collapse('hide');
-    $('#display-collapse').collapse('show');
-}
-function ShowOnlyAdd() {
-    $('#myTab a[href="#add"]').tab('show');
-    $('#display-collapse').collapse('hide');
-    $('#edit-collapse').collapse('hide');
-    $('#add-collapse').collapse('show');
 }
 </script>
 </body>

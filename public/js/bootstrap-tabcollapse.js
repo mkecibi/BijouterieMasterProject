@@ -13,7 +13,6 @@
         this._initAccordion();
         this._checkStateOnResize();
 
-
         // checkState() has gone to setTimeout for making it possible to attach listeners to
         // shown-accordion.bs.tabcollapse event on page load.
         // See https://github.com/flatlogic/bootstrap-tabcollapse/issues/23
@@ -67,7 +66,6 @@
             if ($parentLi.parent().hasClass('dropdown-menu') && !$parentLi.siblings('li').hasClass('active')) {
                 $parentLi.parent().parent().removeClass('active');
             }
-
             if (!$oldHeading.hasClass('collapsed')) {
                 $parentLi.addClass('active');
                 if ($parentLi.parent().hasClass('dropdown-menu')) {
@@ -81,7 +79,7 @@
         });
 
         if (!$('li').hasClass('active')) {
-            $('li').first().addClass('active')
+             $('li').first().addClass('active')
         }
 
         var $panelBodies = this.$accordion.find('.js-tabcollapse-panel-body');
@@ -133,6 +131,7 @@
             var parentId = this.$accordion.attr('id');
             var $selector = this.$accordion.find('.js-tabcollapse-panel-body');
             $selector.find('[data-toggle="tab"], [data-toggle="pill"]').each(function() {
+                     
                 var $el = $(this);
                 var href = $el.attr('href') + '-collapse';
                 $el.attr({
@@ -173,7 +172,7 @@
             clearTimeout(view._resizeTimeout);
             view._resizeTimeout = setTimeout(function(){
                 view.checkState();
-            }, 100);
+            }, 0);
         });
     };
 
@@ -208,7 +207,8 @@
 
         var $tabPane = $(tabSelector),
             groupId = $tabPane.attr('id') + '-collapse',
-            $panel = $(this.options.accordionTemplate($heading, groupId, parentId, active));
+
+        $panel = $(this.options.accordionTemplate($heading, groupId, parentId, active));
         $panel.find('.panel-heading > .panel-title').append(this._tabHeadingToPanelHeading($heading, groupId, parentId, active));
         $panel.find('.panel-body').append($tabPane.contents().detach())
             .data('bs.tabcollapse.tabpane', $tabPane);
@@ -222,6 +222,7 @@
     // =======================
 
     $.fn.tabCollapse = function (option) {
+                
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.tabcollapse');
