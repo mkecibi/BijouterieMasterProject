@@ -41,29 +41,25 @@
 
 
       <ul id="myTab" class="nav nav-tabs">
-
-        <li><a href="#display" data-toggle="tab">Display All Categories</a></li>
-        <li><a href="#add" data-toggle="tab">Add</a></li>
-        <li><a href="#edit" data-toggle="tab">Edit</a></li>
-
-
+        <li><a href="#display" data-toggle="tab"><%= translation.DISPLAYCATEGOYIES %></a></li>
+        <li><a href="#add" data-toggle="tab"><%= translation.ADD %></a></li>
+        <li><a href="#edit" data-toggle="tab"><%= translation.EDIT %></a></li>
       </ul>
       <div id="myTabContent" class="tab-content allBorder padAll col-sm-12" >
 
         <div class="tab-pane fade in active  padAll col-sm-12" id="display">
+  
+	<a  href="#add"  data-toggle="tab" onclick="ShowOnlyAdd()"><input class="simpleBtn" type="submit" name="" value="<%= translation.ADD %>"></a>
 
-  	<div class="col-sm-1 noPadLR">
-		<a  href="#add"  data-toggle="tab" onclick="ShowOnlyAdd()"><input class="simpleBtn" type="submit" name="" value="Add New Address"></a>
-	</div>
   <div class="pageContent address">
        <div class="col-xs-12 noPadLR responTable">
   		<div class="col-xs-12 noPadLR">
   			<table>
   			<thead>
   				<tr>
-  					<th>Name</th>
-  					<th>ImageUrl</th>
-  					<th>Actions</th>
+  					<th><%= translation.NAME %></th>
+  					<th><%= translation.IMAGEURL %></th>
+  					<th><%= translation.ACTION %></th>
 				</tr>
 				</thead>
 				<tbody>
@@ -88,7 +84,7 @@
 
                <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
                 <div class="form-group col-sm-12">
-                    <p>(*) Fields are mandatory</p>
+                    <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
                     <form action="/createproductheader" method="post">
                         <div class="form-group col-md-6">
@@ -102,13 +98,13 @@
                         <div class="clearfix space0"></div>
 
                         <div class="form-group col-md-3 col-xs-6 noMarB">
-                        <input class="submitBtn redBtn center" name="" value="Save" type="submit">
+                        <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
                         </div>
                     </form>
                 </div>
   	<div class="col-sm-6 noPadLR">
-		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back" onclick="ShowOnlyDisplay()"></a>
+		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="<%= translation.PREVIOUS %>" onclick="ShowOnlyDisplay()"></a>
 	</div>
         </div>
 
@@ -117,7 +113,7 @@
 
                     <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
                 <div class="form-group col-sm-12">
-                    <p>(*) Fields are mandatory</p>
+                    <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
                    <form action="/productheaderedit" method="post">
                         <div  class="form-group col-md-6">
@@ -132,14 +128,14 @@
                         <div class="clearfix space0"></div>
 
                         <div class="form-group col-md-3 col-xs-6 noMarB">
-                        <input class="submitBtn redBtn center" name="" value="Save" type="submit">
+                        <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
                         </div>
                  </form>
       </div>
 
-     	<div class="col-sm-6 noPadLR">
-		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back" onclick="ShowOnlyDisplay()"></a>
+  <div class="col-sm-6 noPadLR">
+		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="<%= translation.PREVIOUS %>" onclick="ShowOnlyDisplay()"></a>
 	</div>             
         </div>
 		</div>

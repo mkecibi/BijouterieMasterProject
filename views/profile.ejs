@@ -1,7 +1,7 @@
 <% include _header %>
 
 <% if ((currentUser) && (currentUser.id === user.id)) { %>
-  <a href="/edit" class="pull-right">Edit your profile</a>
+  <a href="/edit" class="pull-right"><%= translation.EDITPROFILE %></a>
 <% } %>
 
 <h1><%= user.email %></h1>

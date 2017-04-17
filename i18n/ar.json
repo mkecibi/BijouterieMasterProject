@@ -1,0 +1,20 @@
+{
+    "WELCOME_MSG": "مرحبا! أهلا بك!",
+    "CONTACT_TEXT": "More bla",
+    "TITLE":"سيد الجواهري",
+    "LOGIN":"تسجيل الدخول",
+    "SIGNUP":"تسجيل",
+    "LOGOUT":"تسجيل الخروج",
+    "ADD":"إضافة",
+    "EDIT":"تغيير",
+    "DELETE":"حذف",
+    "EDITPROFILE":"عدل ملفك الشخصي",
+    "UPDATE":"تحديث",
+    "DISPLAYCATEGOYIES":"عرض جميع الفئات",
+    "PREVIOUS":"السابق",
+    "SAVE":"حفظ",
+    "FIELDSMANDATORY":"الحقول إلزامية",
+    "NAME":"اسم",
+    "IMAGEURL":"رابط الصورة",
+    "ACTION":"عمل"
+}

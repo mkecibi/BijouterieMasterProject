@@ -1,0 +1,20 @@
+{
+    "WELCOME_MSG": "Hi! Welcome!",
+    "CONTACT_TEXT": "More bla",
+    "TITLE":"Bijouterie master",
+    "LOGIN":"Log in",
+    "SIGNUP":"Sign up",
+    "LOGOUT":"Log out",
+    "ADD":"Add",
+    "EDIT":"Edit",
+    "DELETE":"Delete",
+    "EDITPROFILE":"Edit your profile",
+    "UPDATE":"Update",
+    "DISPLAYCATEGOYIES":"Display All Categories",
+    "PREVIOUS":"Previous",
+    "SAVE":"Save",
+    "FIELDSMANDATORY":"Fields are mandatory",
+    "NAME":"Name",
+    "IMAGEURL":"ImageUrl",
+    "ACTION":"Action"
+}

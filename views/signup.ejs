@@ -1,6 +1,6 @@
 <% include _header %>
 
-<h1>Sign up</h1>
+<h1><%= translation.SIGNUP %></h1>
 
 <form action="/signup" method="post">
   <input name="id" type="text" class="form-control" placeholder="id" required autofocus>
@@ -10,7 +10,7 @@
   <input name="bio" type="text" class="form-control" placeholder="birthDay" required autofocus>
   <input name="client_id" type="text" class="form-control" placeholder="clientid" required autofocus>
   <input name="isactive" type="text" class="form-control" placeholder="isactive" required autofocus>
-  <input type="submit" value="Sign up" class="btn btn-primary btn-block">
+  <input type="submit" value="<%= translation.SIGNUP %>" class="btn btn-primary btn-block">
 </form>
 
 <% include _footer %>

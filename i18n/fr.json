@@ -1,0 +1,21 @@
+{
+    "WELCOME_MSG": "Salut! Bienvenue!",
+    "CONTACT_TEXT": "More bla",
+    "TITLE":"Bijouterie master",
+    "LOGIN":"S'identifier",
+    "SIGNUP":"S'inscrire",
+    "LOGOUT":"Se déconnecter",
+    "ADD":"Ajouter",
+    "EDIT":"Modifier",
+    "DELETE":"Effacer",
+    "EDITPROFILE":"Modifier votre profil",
+    "UPDATE":"Mettre à jour",
+    "DISPLAYCATEGOYIES":"Afficher toutes les catégories",
+    "PREVIOUS":"Précédent",
+    "SAVE":"Sauvegarder",
+    "FIELDSMANDATORY":"Les champs sont obligatoires",
+    "NAME":"Nom",
+    "IMAGEURL":"URL de l'image",
+    "ACTION":"Action"
+
+}

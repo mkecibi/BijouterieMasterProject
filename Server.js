@@ -16,7 +16,7 @@ const productroute = require("./routes/product");
 const productheaderroute = require("./routes/productheader");
 const profileroute = require("./routes/profile");
 const baseroute = require("./routes/routes");
-
+const i18n=require("i18n-express");
 class Server {
     static bootstrap() {
         return new Server();
@@ -52,8 +52,12 @@ class Server {
                         next(err);
                     });
             this.app.use(errorHandler());
-
             this.app.use(flash());
+            this.app.use(i18n({
+                translationsPath: path.join(__dirname, 'i18n'), // <--- use here. Specify translations files path. 
+                siteLangs: ["en","fr","es","ar"],
+                textsVarName: 'translation'
+                }));
     }
     routes() {
                 let router;

@@ -1,6 +1,6 @@
 <% include _header %>
 
-<h1>Edit your profile</h1>
+<h1><%= translation.EDITPROFILE %></h1>
 
 <form action="/edit" method="post">
   <input name="id" type="text" class="form-control" placeholder="Display name" value="<%= currentUser.id || "" %>">
@@ -10,7 +10,7 @@
   <input name="bio" type="text" class="form-control" placeholder="email"   value="<%= currentUser.bio || "" %>" required autofocus>
   <input name="client_id" type="text" class="form-control" placeholder="birthDay"  value="<%= currentUser.client_id || "" %>" required autofocus>
   <input name="isactive" type="text" class="form-control" placeholder="birthDay"  value="<%= currentUser.isactive || "" %>" required autofocus>
-  <input type="submit" value="Update" class="btn btn-primary btn-block">
+  <input type="submit" value="<%= translation.UPDATE %>" class="btn btn-primary btn-block">
 </form>
 
 <% include _footer %>
