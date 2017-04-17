@@ -70,6 +70,22 @@ class ProductHeaderViewModel {
             return err;
             }); 
         };
+
+    delete(db,id){
+                return db.ProductHeader.forge({id: id})
+                                .fetch({require: true})
+                                .then(function (productheader) {
+                                productheader.destroy()
+                                .then(function () {
+                                      console.log("Category successfully deleted");
+                                })
+                                .catch(function (err) {
+                                    return err;
+                                });
+                                })
+                                .catch(function (err) {
+                                return err;});
+                };
 }
 
 	

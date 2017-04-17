@@ -15,7 +15,7 @@
 <script src="js/bootstrap-tabcollapse.js"></script>
 
 </head>
-<body>
+<body >
 <div class="container-fluid">
 
   <div class="container breadCrumb ">
@@ -48,8 +48,9 @@
       <div id="myTabContent" class="tab-content allBorder padAll col-sm-12" >
 
         <div class="tab-pane fade in active  padAll col-sm-12" id="display">
-  
-	<a  href="#add"  data-toggle="tab" onclick="ShowOnlyAdd()"><input class="simpleBtn" type="submit" name="" value="<%= translation.ADD %>"></a>
+
+
+		<a  href="#add"  data-toggle="tab" onclick="ShowOnlyAdd()"><input class="simpleBtn" type="submit" name="" value="<%= translation.ADD %>"></a>
 
   <div class="pageContent address">
        <div class="col-xs-12 noPadLR responTable">
@@ -69,7 +70,7 @@
 						<td ><%= productheader.imageurl %></td>
 						<td>
 							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
-							<div class="col-xs-3 col-md-6 noPadLR "><a href="#"><i class="fa fa-trash-o"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR "><a href="/delete/<%= productheader.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
 					</tr>
           <% }) %>

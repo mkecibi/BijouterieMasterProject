@@ -55,6 +55,17 @@ class ProductHeaderRoute extends routeBase.BaseRoute {
                     res.status(500).json({error: true, data: {message: err.message}});
                     });
         });
+        router.get("/delete/:id", this.prototype.ensureAuthenticated,function(req, res, next) {
+            console.log("Moussa id : " + req.params.id);
+                    productheaderVML.delete(db,req.params.id).then(function () {
+                            req.flash("info", "Profile updated!");
+                            res.redirect("/productheaders");
+                })
+                        .otherwise(function (err) {
+                            res.status(500).json({error: true, data: {message: err.message}});
+                        });
+        });
+
     }
 }
 exports.ProductHeaderRoute = ProductHeaderRoute;
