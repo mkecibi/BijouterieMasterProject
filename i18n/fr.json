@@ -16,6 +16,13 @@
     "FIELDSMANDATORY":"Les champs sont obligatoires",
     "NAME":"Nom",
     "IMAGEURL":"URL de l'image",
-    "ACTION":"Action"
+    "ACTION":"Action",
+  	"CODE": "Code",
+  	"COMMENT": "Commentaire",
+    "COLOR":"Couleur",
+    "UOM": "Unité de mesure",
+    "PRICE":"Prix" ,
+    "QUANTITY": "Quantité",
+    "ISACTIVE": "Actif"
 
 }

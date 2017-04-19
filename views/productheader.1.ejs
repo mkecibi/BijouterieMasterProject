@@ -14,8 +14,39 @@
 <script src="js/ToggleNewPersonalCode.js"></script>
 <script src="js/bootstrap-tabcollapse.js"></script>
 
+<style>
+@media	only screen and (max-width:768px){
+table, thead, tbody, th, td{display:block;}
+table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
+
+.pageContent .responTable table thead tr,#tableScroll table thead tr {position:absolute;top:-9999px;left:-9999px;}
+.pageContent .responTable table tr,#tableScroll table tr { clear:both; width:100%; float:left;}
+.pageContent .responTable table tr:nth-of-type(even),#tableScroll table tr:nth-of-type(even) {background:#f9f9f9;}
+.pageContent .responTable table td,#tableScroll table td {position:relative;padding-left:45%;border-right:none!important;min-height:40px;}
+.pageContent .responTable table td:before,#tableScroll table td:before {position:absolute;top:0;left:0;width:43%;padding:12px 5px 2% 5px;border-right:1px solid #ddd; color: #999;}
+.pageContent .responTable table td:last-of-type{float:left;width:100%;}
+.pageContent .responTable table td:last-of-type > div{text-align:left!important;}
+.pageContent .responTable table td.txtRight{ text-align:left!important;}
+
+
+.pageContent.orderTempSelection .responTable table td:nth-of-type(2):before,.pageContent.address .responTable table td:nth-of-type(1):before,.pageContent.quoteBuilder .responTable table td:nth-of-type(1):before {content:"Name";}
+
+.pageContent.address .responTable table td:nth-of-type(2):before {content:"ImageUrl";}
+.pageContent.address .responTable table td:nth-of-type(3):before {content:"Actions";}
+.pageContent.address .responTable table td:nth-of-type(4):before {content:"City";}
+.pageContent.address .responTable table td:nth-of-type(5):before {content:"Province";}
+.pageContent.address .responTable table td:nth-of-type(6):before,.pageContent.quoteBuilder .responTable table td:nth-of-type(5):before {content:"Actions";}
+
+
+	
+
+}
+
+</style>
+
+
 </head>
-<body>
+<body >
 <div class="container-fluid">
 
   <div class="container breadCrumb ">
@@ -41,29 +72,26 @@
 
 
       <ul id="myTab" class="nav nav-tabs">
-
-        <li><a href="#display" data-toggle="tab">Display All Categories</a></li>
-        <li><a href="#add" data-toggle="tab">Add</a></li>
-        <li><a href="#edit" data-toggle="tab">Edit</a></li>
-
-
+        <li><a href="#display" data-toggle="tab"><%= translation.DISPLAYCATEGOYIES %></a></li>
+        <li><a href="#add" data-toggle="tab"><%= translation.ADD %></a></li>
+        <li><a href="#edit" data-toggle="tab"><%= translation.EDIT %></a></li>
       </ul>
       <div id="myTabContent" class="tab-content allBorder padAll col-sm-12" >
 
         <div class="tab-pane fade in active  padAll col-sm-12" id="display">
 
-  	<div class="col-sm-6 noPadLR">
-		<a  href="#add"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="Add New Address"></a>
-	</div>
+
+		<a  href="#add"  data-toggle="tab" onclick="ShowOnlyAdd()"><input class="simpleBtn" type="submit" name="" value="<%= translation.ADD %>"></a>
+
   <div class="pageContent address">
        <div class="col-xs-12 noPadLR responTable">
   		<div class="col-xs-12 noPadLR">
   			<table>
   			<thead>
   				<tr>
-  					<th>Name</th>
-  					<th>ImageUrl</th>
-  					<th>Actions</th>
+  					<th><%= translation.NAME %></th>
+  					<th><%= translation.IMAGEURL %></th>
+  					<th><%= translation.ACTION %></th>
 				</tr>
 				</thead>
 				<tbody>
@@ -72,8 +100,8 @@
 						<td ><%= productheader.name %></td>
 						<td ><%= productheader.imageurl %></td>
 						<td>
-							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>')" ><i class="fa fa-edit"></i></a></div>
-							<div class="col-xs-3 col-md-6 noPadLR "><a href="#"><i class="fa fa-trash-o"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR "><a href="/delete/<%= productheader.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
 					</tr>
           <% }) %>
@@ -88,7 +116,7 @@
 
                <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
                 <div class="form-group col-sm-12">
-                    <p>(*) Fields are mandatory</p>
+                    <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
                     <form action="/createproductheader" method="post">
                         <div class="form-group col-md-6">
@@ -102,13 +130,13 @@
                         <div class="clearfix space0"></div>
 
                         <div class="form-group col-md-3 col-xs-6 noMarB">
-                        <input class="submitBtn redBtn center" name="" value="Save" type="submit">
+                        <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
                         </div>
                     </form>
                 </div>
   	<div class="col-sm-6 noPadLR">
-		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back"></a>
+		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="<%= translation.PREVIOUS %>" onclick="ShowOnlyDisplay()"></a>
 	</div>
         </div>
 
@@ -117,7 +145,7 @@
 
                     <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
                 <div class="form-group col-sm-12">
-                    <p>(*) Fields are mandatory</p>
+                    <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
                    <form action="/productheaderedit" method="post">
                         <div  class="form-group col-md-6">
@@ -132,14 +160,14 @@
                         <div class="clearfix space0"></div>
 
                         <div class="form-group col-md-3 col-xs-6 noMarB">
-                        <input class="submitBtn redBtn center" name="" value="Save" type="submit">
+                        <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
                         </div>
                  </form>
       </div>
 
-     	<div class="col-sm-6 noPadLR">
-		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="back"></a>
+  <div class="col-sm-6 noPadLR">
+		<a  href="#display"  data-toggle="tab" ><input class="simpleBtn" type="submit" name="" value="<%= translation.PREVIOUS %>" onclick="ShowOnlyDisplay()"></a>
 	</div>             
         </div>
 		</div>
@@ -154,10 +182,27 @@
 
 <script>
 function fillEdit(param1,param2,param3) {
-
     document.getElementById("idedit").value = param1
     document.getElementById("nameedit").value = param2
     document.getElementById("Iamgeurledit").value = param3
+}
+function ShowOnlyEdit() {
+    $('#myTab a[href="#edit"]').tab('show');
+    $('#display-collapse').collapse('hide');
+    $('#add-collapse').collapse('hide');
+    $('#edit-collapse').collapse('show');
+}
+function ShowOnlyDisplay() {
+    $('#myTab a[href="#display"]').tab('show');
+    $('#add-collapse').collapse('hide');
+    $('#edit-collapse').collapse('hide');
+    $('#display-collapse').collapse('show');
+}
+function ShowOnlyAdd() {
+    $('#myTab a[href="#add"]').tab('show');
+    $('#display-collapse').collapse('hide');
+    $('#edit-collapse').collapse('hide');
+    $('#add-collapse').collapse('show');
 }
 </script>
 </body>

@@ -1,0 +1,35 @@
+
+@media	only screen and (max-width:768px){
+table, thead, tbody, th, td{display:block;}
+table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
+
+.pageContent .responTable table thead tr,#tableScroll table thead tr {position:absolute;top:-9999px;left:-9999px;}
+.pageContent .responTable table tr,#tableScroll table tr { clear:both; width:100%; float:left;}
+.pageContent .responTable table tr:nth-of-type(even),#tableScroll table tr:nth-of-type(even) {background:#f9f9f9;}
+.pageContent .responTable table td,#tableScroll table td {position:relative;padding-left:45%;border-right:none!important;min-height:40px;}
+.pageContent .responTable table td:before,#tableScroll table td:before {position:absolute;top:0;left:0;width:43%;padding:12px 5px 2% 5px;border-right:1px solid #ddd; color: #999;}
+.pageContent .responTable table td:last-of-type{float:left;width:100%;}
+.pageContent .responTable table td:last-of-type > div{text-align:left!important;}
+.pageContent .responTable table td.txtRight{ text-align:left!important;}
+
+
+
+
+.pageContent.productheader .responTable table td:nth-of-type(1):before {content:"Name";}
+.pageContent.productheader .responTable table td:nth-of-type(2):before {content:"ImageUrl";}
+.pageContent.productheader .responTable table td:nth-of-type(3):before {content:"Actions";}
+.pageContent.productheader .responTable table td:nth-of-type(4):before {content:"City";}
+.pageContent.productheader .responTable table td:nth-of-type(5):before {content:"Province";}
+
+
+
+
+
+.pageContent.product .responTable table td:nth-of-type(1):before {content:"Name";}
+.pageContent.product .responTable table td:nth-of-type(2):before {content:"ImageUrl";}
+.pageContent.product .responTable table td:nth-of-type(3):before {content:"Actions";}
+.pageContent.product .responTable table td:nth-of-type(4):before {content:"City";}
+.pageContent.product .responTable table td:nth-of-type(5):before {content:"Province";}
+.pageContent.product .responTable table td:nth-of-type(6):before,.pageContent.quoteBuilder .responTable table td:nth-of-type(5):before {content:"Actions";}
+
+}

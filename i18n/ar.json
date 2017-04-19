@@ -16,5 +16,12 @@
     "FIELDSMANDATORY":"الحقول إلزامية",
     "NAME":"اسم",
     "IMAGEURL":"رابط الصورة",
-    "ACTION":"عمل"
+    "ACTION":"عمل",
+  	"CODE": "كود",
+  	"COMMENT": "كومنت",
+    "COLOR":"اللون",
+    "UOM": "وحدة القياس",
+    "PRICE":"السعر" ,
+    "QUANTITY": "الكمية",
+    "ISACTIVE": "نشط"
 }
