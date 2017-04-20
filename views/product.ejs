@@ -114,7 +114,11 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
             <td ><%= product.isactive %></td>
 						<td ><%= product.imageurl %></td>
 						<td>
-							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab"  ><i class="fa fa-edit"></i></a></div>
+<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
+onclick="fillEdit('<%= product.id %>','<%= product.name %>','<%= product.code %>','<%= product.comment %>',
+'<%= product.color %>','<%= product.weight %>','<%= product.uom %>','<%= product.price %>','<%= product.quantity %>','<%= product.isactive %>','<%= product.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+            
+	
 							<div class="col-xs-3 col-md-6 noPadLR "><a href="/delete/<%= product.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
 					</tr>
@@ -137,15 +141,61 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                        <input  type="text" id="nameadd" name="nameadd" value="" tabindex="1"  >
                         <label class="fa fa-address-card"></label>
                         </div>
-                        <div class="form-group col-md-6">
-                        <input  type="text" id="imgurladd" name="imgurladd" value="" tabindex="1"  >
-                        <label class="glyphicon glyphicon-user"></label>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="codeadd" name="codeadd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
                         </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="commentadd" name="commentadd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="coloradd" name="coloradd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="weightadd" name="weightadd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="uomadd" name="uomadd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="priceadd" name="priceadd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="quantityadd" name="quantityadd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                         <div  class="form-group col-md-6">
+                          <input type="text" id="isactiveadd" name="isactiveadd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="Iamgeurladd" name="Iamgeurladd" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
                         <div class="clearfix space0"></div>
 
                         <div class="form-group col-md-3 col-xs-6 noMarB">
                         <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
+
+
+
+
                         </div>
                     </form>
                 </div>
@@ -167,10 +217,52 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                         <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"  >
                         <label class="fa fa-address-card"></label>
                         </div>
+
                         <div  class="form-group col-md-6">
-                        <input type="text" id="Iamgeurledit" name="Iamgeurledit" value=""  tabindex="1">
-                        <label class="glyphicon glyphicon-user"></label>
+                          <input type="text" id="codeedit" name="codeedit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
                         </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="commentedit" name="commentedit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="coloredit" name="coloredit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="weightedit" name="weightedit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="uomedit" name="uomedit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="priceedit" name="priceedit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="quantityedit" name="quantityedit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                         <div  class="form-group col-md-6">
+                          <input type="text" id="isactiveedit" name="isactiveedit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                          <input type="text" id="Iamgeurledit" name="Iamgeurledit" value=""  tabindex="1">
+                          <label class="glyphicon glyphicon-user"></label>
+                        </div>
+
                         <div class="clearfix space0"></div>
 
                         <div class="form-group col-md-3 col-xs-6 noMarB">
@@ -195,10 +287,19 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 </div>
 
 <script>
-function fillEdit(param1,param2,param3) {
-    document.getElementById("idedit").value = param1
-    document.getElementById("nameedit").value = param2
-    document.getElementById("Iamgeurledit").value = param3
+function fillEdit(id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl) {
+
+    document.getElementById("idedit").value = id
+    document.getElementById("nameedit").value = name
+    document.getElementById("codeedit").value = code
+    document.getElementById("commentedit").value = comment
+    document.getElementById("coloredit").value = color
+    document.getElementById("weightedit").value = weight
+    document.getElementById("uomedit").value = uom
+    document.getElementById("priceedit").value = price
+    document.getElementById("quantityedit").value = quantity
+    document.getElementById("isactiveedit").value = isactive
+    document.getElementById("Iamgeurledit").value = imageurl
 }
 function ShowOnlyEdit() {
     $('#myTab a[href="#edit"]').tab('show');
