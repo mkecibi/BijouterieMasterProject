@@ -20,6 +20,7 @@
   	"CODE": "Code",
   	"COMMENT": "Comment",
     "COLOR":"Color",
+    "WEIGHT":"Weight",
     "UOM": "Unit of measure",
     "PRICE":"Price" ,
     "QUANTITY": "Quantity",
