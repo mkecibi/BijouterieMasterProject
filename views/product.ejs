@@ -187,6 +187,27 @@ onclick="fillEdit('<%= product.id %>','<%= product.name %>','<%= product.code %>
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
+
+                        <div class="form-group col-md-6">
+                        <% if (productheaders) { %>
+                             <span class="select">
+                                    <label class="arrow glyphicon glyphicon-menu-down"></label>
+                                <select>
+                                    <optgroup label="Select product header">
+                                      <option id="selectedid" selected="selected" value="">Quick list</option>
+
+                                        <% productheaders.forEach(function(productheader) { %>
+                                            <option name="" value="0">Select product header</option>
+                                            <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
+                                        <% }) %>
+                                   </optgroup>
+                               </select>
+                              </span>    
+                        <% } %>
+                        </div>   
+
+
+
                         <div class="clearfix space0"></div>
 
                         <div class="form-group col-md-3 col-xs-6 noMarB">

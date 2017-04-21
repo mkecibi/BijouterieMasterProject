@@ -3,7 +3,7 @@
 const routeBase = require("./routes");
 
 const  productheaderViewModel = require('./../modelview/productheader.js');
-const productheaderVML = productheaderViewModel.ProductHeaderViewModel.getInstance() ;
+const  productheaderVML = productheaderViewModel.ProductHeaderViewModel.getInstance() ;
 const  productViewModel = require('./../modelview/product.js');
 const productVML = productViewModel.ProductViewModel.getInstance() ;
 
@@ -25,16 +25,9 @@ class ProductRoute extends routeBase.BaseRoute {
         router.get('/products',function (req, res) {
 
         productheaderVML.getProductsHeaders(db).then(function (collection) {
-            console.log(collection.toJSON())
                 res.locals.productheaders = collection.toJSON() ;
-            })
-            .otherwise(function (err) {
-                res.status(500).json({error: true, data: {message: err.message}});
-            });
-
-
             productVML.getProducts(db)
-            .then(function (collection) {
+            .then(function (collection) {  
             if (!collection) {
                 res.status(404).json({error: true, data: {}});
             }
@@ -44,6 +37,15 @@ class ProductRoute extends routeBase.BaseRoute {
             })
             .catch(function (err) {
             res.status(500).json({error: true, data: {message: err.message}});
+            });
+
+
+
+
+            })
+            .otherwise(function (err) {
+             
+                res.status(500).json({error: true, data: {message: err.message}});
             });
   });
     }
