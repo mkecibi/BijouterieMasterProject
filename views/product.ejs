@@ -66,22 +66,16 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
     <div class="space0 clearfix btmBorder"></div>
   </div>
   <div class="container pageContent settings">
-    
+   
     <div class="col-sm-12 noPadLR">
-
-
       <ul id="myTab" class="nav nav-tabs">
         <li><a href="#display" data-toggle="tab"><%= translation.DISPLAYCATEGOYIES %></a></li>
         <li><a href="#add" data-toggle="tab"><%= translation.ADD %></a></li>
         <li><a href="#edit" data-toggle="tab"><%= translation.EDIT %></a></li>
       </ul>
       <div id="myTabContent" class="tab-content allBorder padAll col-sm-12" >
-
         <div class="tab-pane fade in active  padAll col-sm-12" id="display">
-
-
 		<a  href="#add"  data-toggle="tab" onclick="ShowOnlyAdd()"><input class="simpleBtn" type="submit" name="" value="<%= translation.ADD %>"></a>
-
   <div class="pageContent product">
        <div class="col-xs-12 noPadLR responTable">
   		<div class="col-xs-12 noPadLR">
@@ -104,23 +98,22 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 				<tbody>
         <% products.forEach(function(product) { %>
 					<tr>
-						<td ><%= product.name %></td>
-						<td ><%= product.code %></td>
-            <td ><%= product.comment %></td>
-            <td ><%= product.color %></td>
-            <td ><%= product.weight %></td>
-						<td ><%= product.uom %></td>
-						<td ><%= product.price %></td>
-            <td ><%= product.quantity %></td>
-            <td ><%= product.isactive %></td>
-						<td ><%= product.imageurl %></td>
-						<td>
-<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
-onclick="fillEdit('<%= product.id %>','<%= product.productheader_id %>','<%= product.name %>','<%= product.code %>','<%= product.comment %>',
-'<%= product.color %>','<%= product.weight %>','<%= product.uom %>','<%= product.price %>','<%= product.quantity %>','<%= product.isactive %>','<%= product.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
-            
-	
-							<div class="col-xs-3 col-md-6 noPadLR "><a href="/delete/<%= product.id %>"><i class="fa fa-trash-o"></i></a></div>
+              <td ><%= product.name %></td>
+              <td ><%= product.code %></td>
+              <td ><%= product.comment %></td>
+              <td ><%= product.color %></td>
+              <td ><%= product.weight %></td>
+              <td ><%= product.uom %></td>
+              <td ><%= product.price %></td>
+              <td ><%= product.quantity %></td>
+              <td ><%= product.isactive %></td>
+              <td ><%= product.imageurl %></td>
+              <td>
+            <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
+            onclick="fillEdit('<%= product.id %>','<%= product.productheader_id %>','<%= product.name %>','<%= product.code %>','<%= product.comment %>',
+            '<%= product.color %>','<%= product.weight %>','<%= product.uom %>','<%= product.price %>','<%= product.quantity %>','<%= product.isactive %>','<%= product.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+
+							<div class="col-xs-3 col-md-6 noPadLR "><a href="/deleteproduct/<%= product.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
 					</tr>
           <% }) %>
@@ -131,74 +124,69 @@ onclick="fillEdit('<%= product.id %>','<%= product.productheader_id %>','<%= pro
   </div>
     </div>
   <div class="tab-pane fade in padAll  col-sm-12" id="add">
-                 <div class="container">
-
-               <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
+         <div class="container">
+             <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
                 <div class="form-group col-sm-12">
                     <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
-                    <form action="/createproductheader" method="post">
+                    <form action="/createproduct" method="post">
                         <div class="form-group col-md-6">
                        <input  type="text" id="nameadd" name="nameadd" placeholder="<%= translation.NAME %>" value="" tabindex="1"  >
                         <label class="fa fa-address-card"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="codeadd" name="codeadd" placeholder="<%= translation.CODE %>" value=""  tabindex="1">
+                        <input  type="text" id="codeadd" name="codeadd" placeholder="<%= translation.CODE %>" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="commentadd" name="commentadd" placeholder="<%=  translation.COMMENT %>"  value=""  tabindex="1">
+                       <input  type="text" id="commentadd" name="commentadd" placeholder="<%= translation.COMMENT %>" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="coloradd" name="coloradd"  placeholder="<%= translation.COLOR  %>" value=""  tabindex="1">
+                       <input  type="text" id="coloradd" name="coloradd" placeholder="<%= translation.COLOR %>" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="weightadd" name="weightadd"  placeholder="<%=  translation.WEIGHT %>" value=""  tabindex="1">
+                       <input  type="text" id="weightadd" name="weightadd" placeholder="<%= translation.WEIGHT %>" value="" tabindex="1"  >   
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="uomadd" name="uomadd" placeholder="<%= translation.UOM  %>"  value=""  tabindex="1">
+                       <input  type="text" id="uomadd" name="uomadd" placeholder="<%= translation.UOM %>" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="priceadd" name="priceadd"  placeholder="<%= translation.PRICE  %>" value=""  tabindex="1">
+                       <input  type="text" id="priceadd" name="priceadd" placeholder="<%= translation.PRICE %>" value="" tabindex="1"  >  
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="quantityadd" name="quantityadd"  placeholder="<%=  translation.QUANTITY %>" value=""  tabindex="1">
+                       <input  type="text" id="quantityadd" name="quantityadd" placeholder="<%= translation.QUANTITY %>" value="" tabindex="1"  >  
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                          <div  class="form-group col-md-6">
-                          <input type="text" id="isactiveadd" name="isactiveadd"  placeholder="<%= translation.ISACTIVE  %>" value=""  tabindex="1">
+                       <input  type="text" id="isactiveadd" name="isactiveadd" placeholder="<%= translation.ISACTIVE %>" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="Iamgeurladd" name="Iamgeurladd"  placeholder="<%=  translation.IMAGEURL %>" value=""  tabindex="1">
+                       <input  type="text" id="Iamgeurladd" name="Iamgeurladd" placeholder="<%= translation.IMAGEURL %>" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
-
-
                         <div class="form-group col-md-6">
                         <% if (productheaders) { %>
                              <span class="select">
                                     <label class="arrow glyphicon glyphicon-menu-down"></label>
-                                <select>
+                                <select id="productheaderladd" name="productheaderladd" >
                                     <optgroup label="Select product header">
-                                      <option id="selectedid" selected="selected" value="">Quick list</option>
-
-                                        <% productheaders.forEach(function(productheader) { %>
                                             <option name="" value="0">Select product header</option>
+                                        <% productheaders.forEach(function(productheader) { %>
                                             <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
                                         <% }) %>
                                    </optgroup>
@@ -206,8 +194,6 @@ onclick="fillEdit('<%= product.id %>','<%= product.productheader_id %>','<%= pro
                               </span>    
                         <% } %>
                         </div>   
-
-
 
                         <div class="clearfix space0"></div>
 
@@ -226,84 +212,80 @@ onclick="fillEdit('<%= product.id %>','<%= product.productheader_id %>','<%= pro
         <div class="tab-pane fade in padAll col-sm-12" id="edit">
                  <div class="container">
 
-                    <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
+             <div class="contentBox col-xs-12 col-sm-8 col-sm-push-2">
                 <div class="form-group col-sm-12">
                     <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
-                   <form action="/productheaderedit" method="post">
+               <form action="/editproduct" method="post">
                         <div  class="form-group col-md-6">
-                        <input type="hidden" id="idedit"  name="idedit" value="">
+                        <input type="hidden" id="idedit"  name="idedit" value="" >
                         <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"  >
                         <label class="fa fa-address-card"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="codeedit" name="codeedit" value=""  tabindex="1">
+                         <input  type="text" id="codeedit" name="codeedit" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="commentedit" name="commentedit" value=""  tabindex="1">
+                         <input  type="text" id="commentedit" name="commentedit" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="coloredit" name="coloredit" value=""  tabindex="1">
+                        <input  type="text" id="coloredit" name="coloredit" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="weightedit" name="weightedit" value=""  tabindex="1">
+                        <input  type="text" id="weightedit" name="weightedit" value="" tabindex="1"  >  
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="uomedit" name="uomedit" value=""  tabindex="1">
+                        <input  type="text" id="uomedit" name="uomedit" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="priceedit" name="priceedit" value=""  tabindex="1">
+                        <input  type="text" id="priceedit" name="priceedit" value="" tabindex="1"  > 
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="quantityedit" name="quantityedit" value=""  tabindex="1">
+                        <input  type="text" id="quantityedit" name="quantityedit" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                          <div  class="form-group col-md-6">
-                          <input type="text" id="isactiveedit" name="isactiveedit" value=""  tabindex="1">
+                        <input  type="text" id="isactiveedit" name="isactiveedit" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
-                          <input type="text" id="Iamgeurledit" name="Iamgeurledit" value=""  tabindex="1">
+                        <input  type="text" id="Iamgeurledit" name="Iamgeurledit" value="" tabindex="1"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
-
 
                         <div class="form-group col-md-6">
                         <% if (productheaders) { %>
                              <span class="select">
                                     <label class="arrow glyphicon glyphicon-menu-down"></label>
-                                <select id="ddledit">
-                                    <optgroup label="Select product header">
-<script>
-var globalproductheaders = [];
-
-  /*  const objSentFromSrv = <%-JSON.stringify(productheaders)%>;   ca vonctionne  cool */
-
-</script>
-
-                   <% productheaders.forEach(function(productheader) { %>
-                          <script>
-                          globalproductheaders["<%= productheader.id %>"] = ["<%= productheader.name %>"];
-                          </script>
-                                            <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
-                                        <% }) %>
-                                   </optgroup>
-                               </select>
+                        <select  id="productheaderledit" name="productheaderledit" >
+                              <optgroup label="Select product header">
+                                    <script>
+                                    var globalproductheaders = [];
+                                      /*  const objSentFromSrv = <%-JSON.stringify(productheaders)%>;   ca vonctionne  cool */
+                                    </script>
+                                  <% productheaders.forEach(function(productheader) { %>
+                                    <script>
+                                    globalproductheaders["<%= productheader.id %>"] = ["<%= productheader.name %>"];
+                                    </script>
+                                    <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
+                                    <% }) %>
+                              </optgroup>
+                        </select>
                               </span>    
                         <% } %>
                         </div>                        
@@ -313,7 +295,7 @@ var globalproductheaders = [];
                         <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
                         </div>
-  </form>
+          </form>
 
       </div>
 
@@ -333,21 +315,16 @@ var globalproductheaders = [];
 <script>
 function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl) {
 
-   document.getElementById('ddledit').selectedIndex = productheader_id;
+    document.getElementById('productheaderledit').selectedIndex = productheader_id;
 
-var ddl = document.getElementById('ddledit');
-var opts = ddl.options.length;
-for (var i=0; i<opts; i++){
-    if (ddl.options[i].value == productheader_id){
-        ddl.options[i].selected = true;
-        break;
+    var ddl = document.getElementById('productheaderledit');
+    var opts = ddl.options.length;
+    for (var i=0; i<opts; i++){
+        if (ddl.options[i].value == productheader_id){
+            ddl.options[i].selected = true;
+            break;
+        }
     }
-}
-
-
-
-
-
     document.getElementById("idedit").value = id
     document.getElementById("nameedit").value = name
     document.getElementById("codeedit").value = code

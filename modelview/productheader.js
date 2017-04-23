@@ -35,7 +35,7 @@ class ProductHeaderViewModel {
 
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
-    save(db,body){
+    update(db,body){
                 return db.ProductHeader.forge({id: body.idedit})
                                 .fetch({require: true})
                                 .then(function (productheader) {
@@ -47,7 +47,7 @@ class ProductHeaderViewModel {
                                       console.log("ProductHeader saved with success");
                                 })
                                 .catch(function (err) {
-                                    return err;
+                                  return err;
                                 });
                                 })
                                 .catch(function (err) {
@@ -55,7 +55,7 @@ class ProductHeaderViewModel {
                 };
 
 
-    saveNew(db,body) {
+    save(db,body) {
         return    db.ProductHeader.forge({
             name:  body.nameadd,
             imageurl: body.imgurladd

@@ -29,8 +29,8 @@ class ProductHeaderRoute extends routeBase.BaseRoute {
         });
 
         router.post("/productheaderedit", this.prototype.ensureAuthenticated, function(req, res, next) {
-            
-           productheaderVML.save(db,req.body).then(function () {
+
+           productheaderVML.update(db,req.body).then(function () {
                             req.flash("info", "Profile updated!");
                             res.redirect("/productheaders");
                 })
@@ -43,8 +43,7 @@ class ProductHeaderRoute extends routeBase.BaseRoute {
         });
 
         router.post("/createproductheader", this.prototype.ensureAuthenticated,function(req, res, next) {
-
-            productheaderVML.saveNew(db,req.body).then(function () {
+            productheaderVML.save(db,req.body).then(function () {
                                 req.flash("info", "Profile updated!");
                                 res.redirect("/productheaders");
                     })
