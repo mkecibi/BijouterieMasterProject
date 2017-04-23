@@ -43,6 +43,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 }
 
 </style>
+
 </head>
 <body >
 <div class="container-fluid">
@@ -115,7 +116,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 						<td ><%= product.imageurl %></td>
 						<td>
 <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
-onclick="fillEdit('<%= product.id %>','<%= product.name %>','<%= product.code %>','<%= product.comment %>',
+onclick="fillEdit('<%= product.id %>','<%= product.productheader_id %>','<%= product.name %>','<%= product.code %>','<%= product.comment %>',
 '<%= product.color %>','<%= product.weight %>','<%= product.uom %>','<%= product.price %>','<%= product.quantity %>','<%= product.isactive %>','<%= product.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
             
 	
@@ -286,12 +287,19 @@ onclick="fillEdit('<%= product.id %>','<%= product.name %>','<%= product.code %>
                         <% if (productheaders) { %>
                              <span class="select">
                                     <label class="arrow glyphicon glyphicon-menu-down"></label>
-                                <select>
+                                <select id="ddledit">
                                     <optgroup label="Select product header">
-                                      <option id="selectedid" selected="selected" value="">Quick list</option>
+<script>
+var globalproductheaders = [];
 
-                                        <% productheaders.forEach(function(productheader) { %>
-                                            <option name="" value="0">Select product header</option>
+  /*  const objSentFromSrv = <%-JSON.stringify(productheaders)%>;   ca vonctionne  cool */
+
+</script>
+
+                   <% productheaders.forEach(function(productheader) { %>
+                          <script>
+                          globalproductheaders["<%= productheader.id %>"] = ["<%= productheader.name %>"];
+                          </script>
                                             <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
                                         <% }) %>
                                    </optgroup>
@@ -323,9 +331,22 @@ onclick="fillEdit('<%= product.id %>','<%= product.name %>','<%= product.code %>
   </div>
 </div>
 <script>
-function fillEdit(id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl) {
+function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl) {
 
-    document.getElementById("selectedid").value = id
+   document.getElementById('ddledit').selectedIndex = productheader_id;
+
+var ddl = document.getElementById('ddledit');
+var opts = ddl.options.length;
+for (var i=0; i<opts; i++){
+    if (ddl.options[i].value == productheader_id){
+        ddl.options[i].selected = true;
+        break;
+    }
+}
+
+
+
+
 
     document.getElementById("idedit").value = id
     document.getElementById("nameedit").value = name
