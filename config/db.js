@@ -1,8 +1,8 @@
 'use strict'
 
 const env = require('./env');
-
-var knex = require('knex')({
+const cascadeDelete = require('bookshelf-cascade-delete');
+const knex = require('knex')({
   client: env.DATABASE_CLIENT,
   connection: {
     host: env.DATABASE_HOST,
@@ -33,9 +33,12 @@ var knex = require('knex')({
 });
 var Bookshelf = require(env.ORM_NAME)(knex);
 
+Bookshelf.plugin(cascadeDelete);
+
 // Connect all the models/tables in the database to a db object,
 //so everything is accessible via one object
 var db = {};
+
 
 db.Bookshelf = Bookshelf;
 

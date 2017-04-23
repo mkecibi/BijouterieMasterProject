@@ -16,7 +16,7 @@ class ClientViewModel {
                             return collection
                             //callback(collection);
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             return err ;//callback(''); 
                         });
     }
@@ -30,7 +30,7 @@ class ClientViewModel {
                         return  client;
                     }
                     })
-                    .otherwise(function (err) {
+                    .catch(function (err) {
                         return err;
                     })
     }

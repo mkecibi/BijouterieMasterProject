@@ -16,7 +16,7 @@ class UserViewModel {
                             return collection
                             //callback(collection);
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             return err ;//callback(''); 
                         });
     }
@@ -30,7 +30,7 @@ class UserViewModel {
                         return  user;
                     }
                     })
-                    .otherwise(function (err) {
+                    .catch(function (err) {
                         return err;
                     })
     }

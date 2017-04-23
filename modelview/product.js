@@ -14,7 +14,7 @@ class ProductViewModel {
                         .then(function (collection) {
                             return collection
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             return err ;
                         });
     }
@@ -28,7 +28,7 @@ class ProductViewModel {
                         return  product;
                     }
                     })
-                    .otherwise(function (err) {
+                    .catch(function (err) {
                         return err;
                     })
     }
@@ -71,7 +71,7 @@ class ProductViewModel {
             console.log("Product saved with success");
         //   return  Product
             })
-            .otherwise(function (err) {
+            .catch(function (err) {
                 console.log("error to  saved : " + err.message);
             return err;
             }); 

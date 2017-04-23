@@ -14,7 +14,7 @@ class SupplierViewModel {
                         .then(function (collection) {
                             return collection
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             return err ;
                         });
     }
@@ -28,7 +28,7 @@ class SupplierViewModel {
                         return  supplier;
                     }
                     })
-                    .otherwise(function (err) {
+                    .catch(function (err) {
                         return err;
                     })
     }

@@ -22,7 +22,7 @@ class ProductRoute extends routeBase.BaseRoute {
 
     static create(router,db) {
 
-        router.get('/products',function (req, res) {
+        router.get('/products',this.prototype.ensureAuthenticated,function (req, res) {
                 productheaderVML.getProductsHeaders(db).then(function (collection) {
                         res.locals.productheaders = collection.toJSON() ;
                     productVML.getProducts(db)
@@ -38,7 +38,7 @@ class ProductRoute extends routeBase.BaseRoute {
                     res.status(500).json({error: true, data: {message: err.message}});
                     });
                     })
-                    .otherwise(function (err) {
+                    .catch(function (err) {
                         res.status(500).json({error: true, data: {message: err.message}});
               });
         });
@@ -73,7 +73,7 @@ class ProductRoute extends routeBase.BaseRoute {
                             req.flash("info", "Profile updated!");
                             res.redirect("/products");
                 })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             res.status(500).json({error: true, data: {message: err.message}});
                         });
         });

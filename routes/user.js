@@ -35,7 +35,7 @@ class UserRoute extends routeBase.BaseRoute {
                     userVML.getUsers(db).then(function (collection) {
                             res.render("index", { users: collection.toJSON() });
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             res.status(500).json({error: true, data: {message: err.message}});
                         });
         });
@@ -45,7 +45,7 @@ class UserRoute extends routeBase.BaseRoute {
                         userVML.getByUsername(db,username).then(function (user) {
                                   return  res.render("profile",{user:user.toJSON()});
                             })
-                            .otherwise(function (err) {
+                            .catch(function (err) {
                                 res.status(500).json({error: true, data: {message: err.message}});
                             });
                         });

@@ -12,7 +12,7 @@ var Branche = Bookshelf.Model.extend({
     branches_products: function () {
        return this.hasMany(BrancheProduct, 'branche_id');
     }
-});
+},{dependents: ['branches_users','branches_products']});
 Branche.Branches = Bookshelf.Collection.extend({
   model: Branche
 });
@@ -53,7 +53,7 @@ var Supplier = Bookshelf.Model.extend({
     products_suppliers: function () {
        return this.hasMany(ProductSupplier, 'supplier_id');
     }
-});
+},{dependents: ['products_suppliers']});
 
 Supplier.Suppliers = Bookshelf.Collection.extend({
   model: Supplier
@@ -81,7 +81,7 @@ var ProductHeader = Bookshelf.Model.extend({
     products: function () {
        return this.hasMany(Product, 'productheader_id');
     }
-});
+},{dependents: ['products']});
 
 ProductHeader.ProductHeaders = Bookshelf.Collection.extend({
   model: ProductHeader
@@ -101,7 +101,7 @@ var Product = Bookshelf.Model.extend({
     products_suppliers: function () {
        return this.hasMany(ProductSupplier, 'product_id');
     }
-});
+},{dependents: ['products_suppliers','branches_products']});
 
 Product.Products = Bookshelf.Collection.extend({
   model: Product
@@ -114,7 +114,7 @@ var Client = Bookshelf.Model.extend({
     users: function () {
        return this.hasMany(User, 'client_id');
     }
-});
+},{dependents: ['users']});
 
 Client.Clients = Bookshelf.Collection.extend({
   model: Client
@@ -130,7 +130,7 @@ var User = Bookshelf.Model.extend({
     branches_users: function () {
        return this.hasMany(BrancheUser, 'user_id');
     }
-});
+},{dependents: ['branches_users']});
 
 User.Users = Bookshelf.Collection.extend({
   model: User
@@ -138,15 +138,15 @@ User.Users = Bookshelf.Collection.extend({
 
 //**********************  User ********************************* */
 
-modeles.User  = User
-modeles.Client  = Client
-modeles.Supplier  = Supplier
-modeles.ProductHeader  = ProductHeader
-modeles.Product  = Product
-modeles.ProductSupplier  = ProductSupplier
-modeles.BrancheUser  = BrancheUser
-modeles.BrancheProduct  = BrancheProduct
-modeles.Branche  = Branche
+    modeles.User  = User
+    modeles.Client  = Client
+    modeles.Supplier  = Supplier
+    modeles.ProductHeader  = ProductHeader
+    modeles.Product  = Product
+    modeles.ProductSupplier  = ProductSupplier
+    modeles.BrancheUser  = BrancheUser
+    modeles.BrancheProduct  = BrancheProduct
+    modeles.Branche  = Branche
 
   return modeles;
 };

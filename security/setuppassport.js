@@ -38,7 +38,7 @@ module.exports = function() {
          return done(null, user.toJSON());
 		  }
 		})
-		.otherwise(function (err) {
+		.catch(function (err) {
       return done(null, false, { message: "Invalid password." });
 		})
   }));

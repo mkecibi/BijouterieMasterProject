@@ -14,7 +14,7 @@ class BrancheUserViewModel {
                         .then(function (collection) {
                             return collection
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             return err ;
                         });
     }
@@ -28,7 +28,7 @@ class BrancheUserViewModel {
                             return  brancheUser;
                         }
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             return err;
                         });
     }
@@ -43,7 +43,7 @@ class BrancheUserViewModel {
                                 return  brancheUser;
                             }
                             })
-                            .otherwise(function (err) {
+                            .catch(function (err) {
                                 return err;
                             });
     }

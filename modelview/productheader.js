@@ -14,7 +14,7 @@ class ProductHeaderViewModel {
                         .then(function (collection) {
                             return collection
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             return err ;
                         });
     }
@@ -22,13 +22,13 @@ class ProductHeaderViewModel {
 //**********************************getByClientid*********************************************** */
    getByProductHeaderid(db,id){
           return   db.ProductHeader.query({where: {id:id}})
-                    .fetch()
+                    .fetch({withRelated: ['products']})
                     .then(function (productheader) {
                     if (productheader) {
                         return  productheader;
                     }
                     })
-                    .otherwise(function (err) {
+                    .catch(function (err) {
                         return err;
                     })
     }
@@ -65,14 +65,14 @@ class ProductHeaderViewModel {
             console.log("ProductHeader saved with success");
         //   return  productheader
             })
-            .otherwise(function (err) {
+            .catch(function (err) {
                 console.log("error to  saved : " + err.message);
             return err;
             }); 
         };
 
     delete(db,id){
-                return db.ProductHeader.forge({id: id})
+                  return db.ProductHeader.forge({id: id})
                                 .fetch({require: true})
                                 .then(function (productheader) {
                                 productheader.destroy()
@@ -80,19 +80,15 @@ class ProductHeaderViewModel {
                                       console.log("Category successfully deleted");
                                 })
                                 .catch(function (err) {
+                                                console.log("err : " + err);
                                     return err;
                                 });
                                 })
                                 .catch(function (err) {
+                                     console.log("err : " + err);
                                 return err;});
                 };
 }
-
-	
-
-
-
-
 
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */

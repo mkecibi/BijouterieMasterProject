@@ -23,7 +23,7 @@ class ProductHeaderRoute extends routeBase.BaseRoute {
                     productheaderVML.getProductsHeaders(db).then(function (collection) {
                             res.render("productheader", { productheaders: collection.toJSON() });
                         })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             res.status(500).json({error: true, data: {message: err.message}});
                         });
         });
@@ -55,12 +55,20 @@ class ProductHeaderRoute extends routeBase.BaseRoute {
                     });
         });
         router.get("/delete/:id", this.prototype.ensureAuthenticated,function(req, res, next) {
-            console.log("Moussa id : " + req.params.id);
+            
+          /*  productheaderVML.getByProductHeaderid(db,req.params.id).then(function (collection) {
+                  
+                              res.json({error: false, data: collection.toJSON()});
+                        })
+                        .otherwise(function (err) {
+                            res.status(500).json({error: true, data: {message: err.message}});
+                        });*/
+            
                     productheaderVML.delete(db,req.params.id).then(function () {
                             req.flash("info", "Profile updated!");
                             res.redirect("/productheaders");
                 })
-                        .otherwise(function (err) {
+                        .catch(function (err) {
                             res.status(500).json({error: true, data: {message: err.message}});
                         });
         });

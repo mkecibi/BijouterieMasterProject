@@ -51,12 +51,12 @@ class LoginRoute extends routeBase.BaseRoute {
                                 userVML.save(db,req.body).then(function (user) {
                                         return res.redirect("/login");
                                     })
-                                    .otherwise(function (err) {
+                                    .catch(function (err) {
                                     res.status(500).json({error: true, data: {message: err.message}});
                                     });
                                 }
                             })
-                            .otherwise(function (err) {
+                            .catch(function (err) {
                         res.status(500).json({error: true, data: {message: err.message}});
                     })
         });
