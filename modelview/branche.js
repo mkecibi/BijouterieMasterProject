@@ -52,14 +52,35 @@ class BrancheViewModel {
     }
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
-    save(db,body){
+//**************************************************************************************** */
+
+    save(db,body) {
+        return    db.Branche.forge({
+                                        name:  body.nameadd || branche.get('name'),
+                                        address:body.addressadd || branche.get('address'),
+                                        isactive:body.isactiveadd || branche.get('isactive')
+            })
+            .save()
+            .then(function (branche) {
+            console.log("branche saved with success");
+        //   return  supplier
+            })
+            .catch(function (err) {
+                console.log("error to  saved : " + err.message);
+            return err;
+            }); 
+        };
+
+//***************************** Add Update******************************************** */
+//***************************** Add Update******************************************** */
+    update(db,body){
                 return db.Branche.forge({id: body.id})
                                 .fetch({require: true})
                                 .then(function (branche) {
                                 branche.save({
-                                        name:  body.name || branche.get('name'),
-                                        address:body.address || branche.get('address'),
-                                        isactive:body.isactive || branche.get('isactive')
+                                        name:  body.nameedit || branche.get('name'),
+                                        address:body.addressedit || branche.get('address'),
+                                        isactive:((body.isactiveedit == "on") ? 1 : 0)
                                 })
                                 .then(function () {
                                     console.log("branche saved with success");
@@ -71,8 +92,25 @@ class BrancheViewModel {
                                 .catch(function (err) {
                                 return err;});
                 };
-}
+//**************************************************************************************** */
+    delete(db,id){
+                return db.Branche.forge({id: id})
+                                .fetch({require: true})
+                                .then(function (branche) {
+                                branche.destroy()
+                                .then(function () {
+                                      console.log("branche successfully deleted");
+                                })
+                                .catch(function (err) {
+                                    return err;
+                                });
+                                })
+                                .catch(function (err) {
+                                return err;});
+                };
 
+
+}
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
 exports.BrancheViewModel = BrancheViewModel;

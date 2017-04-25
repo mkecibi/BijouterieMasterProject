@@ -64,7 +64,7 @@ class ProductViewModel {
                                             uom: body.uomadd || product.get('uom'),
                                             price: body.priceadd || product.get('price'),
                                             quantity: body.quantityadd || product.get('quantity'),
-                                            isactive:body.isactiveadd || product.get('isactive')
+                                            isactive:((body.isactiveadd == "on") ? 1 : 0)
             })
             .save()
             .then(function (Product) {
@@ -79,6 +79,11 @@ class ProductViewModel {
 
 //***************************** Add Update******************************************** */
     update(db,body){
+        if(body.isactiveedit == "on")
+             console.log("Moussa body on")
+             else
+              console.log("Moussa body off")
+
         console.log(body)
                 return db.Product.forge({id: body.idedit})
                                 .fetch({require: true})
@@ -94,7 +99,7 @@ class ProductViewModel {
                                                 uom: body.uomedit || product.get('uom'),
                                                 price: body.priceedit || product.get('price'),
                                                 quantity: body.quantityedit || product.get('quantity'),
-                                                isactive:body.isactiveedit || product.get('isactive')
+                                                isactive:((body.isactiveedit == "on") ? 1 : 0)
                                 })
                                 .then(function () {
                                       console.log("Product saved with success");

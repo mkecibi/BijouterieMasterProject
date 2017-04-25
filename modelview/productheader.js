@@ -41,7 +41,8 @@ class ProductHeaderViewModel {
                                 .then(function (productheader) {
                                 productheader.save({
                                         name:  body.nameedit || productheader.get('name'),
-                                        imageurl: body.Iamgeurledit || productheader.get('imageurl')
+                                        imageurl: body.Iamgeurledit || productheader.get('imageurl'),
+                                        isactive:((body.isactiveedit == "on") ? 1 : 0)
                                 })
                                 .then(function () {
                                       console.log("ProductHeader saved with success");
@@ -56,20 +57,21 @@ class ProductHeaderViewModel {
 
 
     save(db,body) {
-        return    db.ProductHeader.forge({
-            name:  body.nameadd,
-            imageurl: body.imgurladd
-            })
-            .save()
-            .then(function (productheader) {
-            console.log("ProductHeader saved with success");
-        //   return  productheader
-            })
-            .catch(function (err) {
-                console.log("error to  saved : " + err.message);
-            return err;
-            }); 
-        };
+                return    db.ProductHeader.forge({
+                    name:  body.nameadd,
+                    imageurl: body.imgurladd,
+                    isactive:((body.isactiveadd == "on") ? 1 : 0)
+                    })
+                    .save()
+                    .then(function (productheader) {
+                    console.log("ProductHeader saved with success");
+                //   return  productheader
+                    })
+                    .catch(function (err) {
+                        console.log("error to  saved : " + err.message);
+                    return err;
+                    }); 
+                };
 
     delete(db,id){
                   return db.ProductHeader.forge({id: id})

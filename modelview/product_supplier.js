@@ -48,15 +48,33 @@ class ProductSupplierViewModel {
                             });
     }
 //**************************************************************************************** */
+    save(db,body) {
+        return    db.ProductSupplier.forge({
+                                        product_id:  body.product_idadd || productsupplier.get('product_id'),
+                                        supplier_id: body.supplier_idadd || productsupplier.get('supplier_id'),
+                                        isactive:((body.isactiveadd == "on") ? 1 : 0)
+            })
+            .save()
+            .then(function (productsupplier) {
+            console.log("productsupplier saved with success");
+        //   return  supplier
+            })
+            .catch(function (err) {
+                console.log("error to  saved : " + err.message);
+            return err;
+            }); 
+        };
+
 //***************************** Add Update******************************************** */
-    save(db,body){
+//***************************** Add Update******************************************** */
+    update(db,body){
                 return db.ProductSupplier.forge({id: body.id})
                                 .fetch({require: true})
                                 .then(function (productsupplier) {
                                 productsupplier.save({
-                                        product_id:  body.product_id || productsupplier.get('product_id'),
-                                        supplier_id: body.supplier_id || productsupplier.get('supplier_id'),
-                                        isactive:body.isactive || productsupplier.get('isactive')
+                                        product_id:  body.product_idedit || productsupplier.get('product_id'),
+                                        supplier_id: body.supplier_idedit || productsupplier.get('supplier_id'),
+                                        isactive:((body.isactiveedit == "on") ? 1 : 0)
                                 })
                                 .then(function () {
                                       console.log("Productsupplier saved with success");
@@ -68,6 +86,26 @@ class ProductSupplierViewModel {
                                 .catch(function (err) {
                                 return err;});
                 };
+
+//***************************** Add Update******************************************** */
+//**************************************************************************************** */
+    delete(db,id){
+                return db.ProductSupplier.forge({id: id})
+                                .fetch({require: true})
+                                .then(function (productsupplier) {
+                                productsupplier.destroy()
+                                .then(function () {
+                                      console.log("productsupplier successfully deleted");
+                                })
+                                .catch(function (err) {
+                                    return err;
+                                });
+                                })
+                                .catch(function (err) {
+                                return err;});
+                };
+
+
 }
 
 //**************************************************************************************** */

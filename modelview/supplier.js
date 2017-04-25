@@ -55,19 +55,43 @@ class SupplierViewModel {
                             });
     }
 //**************************************************************************************** */
+//**************************************************************************************** */
+
+    save(db,body) {
+        return    db.Supplier.forge({
+                                        username:  body.nameadd || supplier.get('name'),
+                                        email: body.emailadd || supplier.get('email'),
+                                        website: body.websiteadd || supplier.get('website'),
+                                        address:body.addressadd || supplier.get('address'),
+                                        tel:body.teladd || supplier.get('tel'),
+                                        tyope: body.typeadd || supplier.get('type'),
+                                        isactive:((body.isactiveadd == "on") ? 1 : 0)
+            })
+            .save()
+            .then(function (supplier) {
+            console.log("supplier saved with success");
+        //   return  supplier
+            })
+            .catch(function (err) {
+                console.log("error to  saved : " + err.message);
+            return err;
+            }); 
+        };
+
 //***************************** Add Update******************************************** */
-    save(db,body){
+//***************************** Add Update******************************************** */
+    update(db,body){
                 return db.Supplier.forge({id: body.id})
                                 .fetch({require: true})
                                 .then(function (supplier) {
                                 supplier.save({
-                                        username:  body.name || supplier.get('name'),
-                                        email: body.email || supplier.get('email'),
-                                        website: body.website || supplier.get('website'),
-                                        address:body.address || supplier.get('address'),
-                                        tel:body.tel || supplier.get('tel'),
-                                        tyope: body.type || supplier.get('type'),
-                                        isactive:body.isactive || supplier.get('isactive')
+                                        username:  body.nameedit || supplier.get('name'),
+                                        email: body.emailedit || supplier.get('email'),
+                                        website: body.websiteedit || supplier.get('website'),
+                                        address:body.addressedit || supplier.get('address'),
+                                        tel:body.teledit || supplier.get('tel'),
+                                        tyope: body.typeedit || supplier.get('type'),
+                                        isactive:((body.isactiveedit == "on") ? 1 : 0)
                                 })
                                 .then(function () {
                                       console.log("Supplier saved with success");
@@ -79,7 +103,29 @@ class SupplierViewModel {
                                 .catch(function (err) {
                                 return err;});
                 };
+//**************************************************************************************** */
+    delete(db,id){
+                return db.Supplier.forge({id: id})
+                                .fetch({require: true})
+                                .then(function (supplier) {
+                                supplier.destroy()
+                                .then(function () {
+                                      console.log("supplier successfully deleted");
+                                })
+                                .catch(function (err) {
+                                    return err;
+                                });
+                                })
+                                .catch(function (err) {
+                                return err;});
+                };
+
 }
+
+
+
+
+
 
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */

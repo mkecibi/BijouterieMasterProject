@@ -32,8 +32,9 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 
 .pageContent.productheader .responTable table td:nth-of-type(1):before {content:"<%= translation.NAME %>";}
 .pageContent.productheader .responTable table td:nth-of-type(2):before {content:"<%= translation.IMAGEURL %>";}
-.pageContent.productheader .responTable table td:nth-of-type(3):before {content:"<%= translation.ACTION %>";}
-.pageContent.productheader .responTable table td:nth-of-type(4):before {content:"<%= translation.ISACTIVE %>";}
+.pageContent.productheader .responTable table td:nth-of-type(3):before {content:"<%= translation.ISACTIVE %>";}
+.pageContent.productheader .responTable table td:nth-of-type(4):before {content:"<%= translation.ACTION %>";}
+
 
 }
 
@@ -85,6 +86,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
   				<tr>
   					<th><%= translation.NAME %></th>
   					<th><%= translation.IMAGEURL %></th>
+  					<th><%= translation.ISACTIVE %></th>
   					<th><%= translation.ACTION %></th>
 				</tr>
 				</thead>
@@ -93,8 +95,9 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 					<tr>
 						<td ><%= productheader.name %></td>
 						<td ><%= productheader.imageurl %></td>
+            <td ><%= productheader.isactive %></td>
 						<td>
-							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+							<div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>','<%= productheader.isactive %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
 							<div class="col-xs-3 col-md-6 noPadLR "><a href="/delete/<%= productheader.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
 					</tr>
@@ -114,13 +117,23 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                     </div>
                     <form action="/createproductheader" method="post">
                         <div class="form-group col-md-6">
-                       <input  type="text" id="nameadd" name="nameadd" placeholder="<%= translation.NAME %>"  value="" tabindex="1"  >
+                       <input  type="text" id="nameadd" name="nameadd" placeholder="<%= translation.NAME %>"  value="" tabindex="1" required autofocus >
                         <label class="fa fa-address-card"></label>
                         </div>
                         <div class="form-group col-md-6">
-                        <input  type="text" id="imgurladd" name="imgurladd" placeholder="<%= translation.IMAGEURL %>"   value="" tabindex="1"  >
+                        <input  type="text" id="imgurladd" name="imgurladd" placeholder="<%= translation.IMAGEURL %>"   value="" tabindex="1" required  >
                         <label class="glyphicon glyphicon-user"></label>
                         </div>
+
+                        <div  class="form-group col-md-6">
+                          <input id="isactiveadd" name="isactiveadd"  class="customCheckBox"  type="checkbox">
+                          <label for="isactiveadd" class="customCheckBox-label">Active</label>
+                         </div>
+                        <div  class="form-group col-md-6">
+                        </div>
+                        <div  class="form-group col-md-6">
+                        </div>
+
                         <div class="clearfix space0"></div>
 
                         <div class="form-group col-md-3 col-xs-6 noMarB">
@@ -145,13 +158,23 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                    <form action="/productheaderedit" method="post">
                         <div  class="form-group col-md-6">
                             <input type="hidden" id="idedit"  name="idedit" value="">
-                            <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"  >
+                            <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1" required autofocus >
                             <label class="fa fa-address-card"></label>
                         </div>
                         <div  class="form-group col-md-6">
-                            <input  type="text" id="Iamgeurledit" name="Iamgeurledit" value="" tabindex="1"  >
+                            <input  type="text" id="Iamgeurledit" name="Iamgeurledit" value="" tabindex="1" required  >
                             <label class="glyphicon glyphicon-user"></label>
                         </div>
+
+                        <div  class="form-group col-md-6">
+                          <input id="isactiveedit" name="isactiveedit"  class="customCheckBox"  type="checkbox">
+                          <label for="isactiveedit" class="customCheckBox-label">Active</label>
+                         </div>
+                        <div  class="form-group col-md-6">
+                        </div>
+                        <div  class="form-group col-md-6">
+                        </div>
+                        <div class="clearfix space0"></div>
                         <div class="clearfix space0"></div>
                         <div class="form-group col-md-3 col-xs-6 noMarB">
                         <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
@@ -179,10 +202,12 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 </div>
 
 <script>
-function fillEdit(param1,param2,param3) {
+function fillEdit(param1,param2,param3,isactive) {
     document.getElementById("idedit").value = param1
     document.getElementById("nameedit").value = param2
     document.getElementById("Iamgeurledit").value = param3
+    document.getElementById("isactiveedit").checked = ((isactive == 1) ? true : false)
+
 }
 function ShowOnlyEdit() {
     $('#myTab a[href="#edit"]').tab('show');

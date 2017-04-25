@@ -1,5 +1,8 @@
 "use strict";
 const routeBase = require("./../routes");
+const  brancheUserViewModel = require('./../modelview/branche_user.js');
+const brancheUserVML = brancheUserViewModel.BrancheUserViewModel.getInstance() ;
+
 class BrancheUserRoute extends routeBase.BaseRoute {
     constructor() {
         super();

@@ -41,15 +41,55 @@ class UserViewModel {
                                 .fetch({require: true})
                                 .then(function (user) {
                                 user.save({
-                                        username:  body.username || user.get('username'),
-                                        email: body.email || user.get('email'),
-                                        password:body.password || user.get('password'),
-                                        bio:body.bio || user.get('bio'),
-                                        client_id:body.client_id || user.get('client_id'),
-                                        isactive:body.isactive || user.get('isactive')
+                                        username:  body.usernameadd || user.get('username'),
+                                        email: body.emailadd || user.get('email'),
+                                        password:body.passwordadd || user.get('password'),
+                                        bio:body.bioadd || user.get('bio'),
+                                        client_id:body.client_idadd || user.get('client_id'),
+                                        isactive:body.isactiveadd || user.get('isactive')
                                 })
                                 .then(function () {
                                       console.log("saved with success");
+                                })
+                                .catch(function (err) {
+                                    return err;
+                                });
+                                })
+                                .catch(function (err) {
+                                return err;});
+                };
+
+//***************************** Add Update******************************************** */
+    update(db,body){
+                return db.User.forge({id: body.id})
+                                .fetch({require: true})
+                                .then(function (user) {
+                                user.save({
+                                        username:  body.usernameedit || user.get('username'),
+                                        email: body.emailedit || user.get('email'),
+                                        password:body.passwordedit || user.get('password'),
+                                        bio:body.bioedit || user.get('bio'),
+                                        client_id:body.client_idedit || user.get('client_id'),
+                                        isactive:((body.isactiveedit == "on") ? 1 : 0)
+                                })
+                                .then(function () {
+                                      console.log("saved with success");
+                                })
+                                .catch(function (err) {
+                                    return err;
+                                });
+                                })
+                                .catch(function (err) {
+                                return err;});
+                };
+//**************************************************************************************** */
+    delete(db,id){
+                return db.User.forge({id: id})
+                                .fetch({require: true})
+                                .then(function (user) {
+                                user.destroy()
+                                .then(function () {
+                                      console.log("user successfully deleted");
                                 })
                                 .catch(function (err) {
                                     return err;
