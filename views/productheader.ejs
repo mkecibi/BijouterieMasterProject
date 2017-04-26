@@ -117,7 +117,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                     </div>
                     <form action="/createproductheader" method="post">
                         <div class="form-group col-md-6">
-                       <input  type="text" id="nameadd" name="nameadd" placeholder="<%= translation.NAME %>"  value="" tabindex="1" required autofocus >
+                       <input  type="text" id="nameadd" name="nameadd" placeholder="<%= translation.NAME %>"  value="" tabindex="1" required  data-required-message="E-Mail or Username is Required!"   autofocus >
                         <label class="fa fa-address-card"></label>
                         </div>
                         <div class="form-group col-md-6">
@@ -127,7 +127,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 
                         <div  class="form-group col-md-6">
                           <input id="isactiveadd" name="isactiveadd"  class="customCheckBox"  type="checkbox">
-                          <label for="isactiveadd" class="customCheckBox-label">Active</label>
+                          <label for="isactiveadd" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
                          </div>
                         <div  class="form-group col-md-6">
                         </div>
@@ -158,7 +158,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                    <form action="/productheaderedit" method="post">
                         <div  class="form-group col-md-6">
                             <input type="hidden" id="idedit"  name="idedit" value="">
-                            <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1" required autofocus >
+                            <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1" required  autofocus >
                             <label class="fa fa-address-card"></label>
                         </div>
                         <div  class="form-group col-md-6">
@@ -168,7 +168,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 
                         <div  class="form-group col-md-6">
                           <input id="isactiveedit" name="isactiveedit"  class="customCheckBox"  type="checkbox">
-                          <label for="isactiveedit" class="customCheckBox-label">Active</label>
+                          <label for="isactiveedit" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
                          </div>
                         <div  class="form-group col-md-6">
                         </div>
@@ -227,6 +227,11 @@ function ShowOnlyAdd() {
     $('#edit-collapse').collapse('hide');
     $('#add-collapse').collapse('show');
 }
+
+$('input[required]').on('invalid', function() {
+    this.setCustomValidity($(this).data("required-message"));
+});
+
 </script>
 </body>
 </html>
