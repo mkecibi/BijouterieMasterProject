@@ -24,5 +24,16 @@
     "UOM": "Unit of measure",
     "PRICE":"Price" ,
     "QUANTITY": "Quantity",
-    "ISACTIVE": "Active"
+    "ISACTIVE": "Active",
+
+    "ERRORInvalideName":"Please Enter valid name",
+    "ERRORInvalideImageUrl":"Please Enter valid image url",
+    "ERRORInvalideCODE":"Please Enter valid code",
+    "ERRORInvalideCOMMENT":"Please Enter valid comment",
+    "ERRORInvalideCOLOR":"Please Enter valid color",
+    "ERRORInvalideWEIGHT":"Please Enter valid weight",
+    "ERRORInvalideUOM":"Please Enter valid Unit of measure",
+    "ERRORInvalidePRICE":"Please Enter valid price",
+    "ERRORInvalideQUANTITY":"Please Enter valid quantity"
+
 }

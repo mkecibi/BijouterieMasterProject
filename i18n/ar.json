@@ -18,11 +18,22 @@
     "IMAGEURL":"رابط الصورة",
     "ACTION":"عمل",
   	"CODE": "كود",
-  	"COMMENT": "كومنت",
+  	"COMMENT": "تعليق",
     "COLOR":"اللون",
     "WEIGHT":"وزن",
     "UOM": "وحدة القياس",
     "PRICE":"السعر" ,
     "QUANTITY": "الكمية",
-    "ISACTIVE": "نشط"
+    "ISACTIVE": "نشط",
+
+    "ERRORInvalideName":"الرجاء أدخل اسم صالح",
+    "ERRORInvalideImageUrl":"الرجاء أدخل رابط الصورة صالح",
+
+    "ERRORInvalideCODE":"الرجاء إدخال رمز صالح",
+    "ERRORInvalideCOMMENT":"الرجاء إدخال تعليق صالح",
+    "ERRORInvalideCOLOR":"الرجاء إدخال لون صالح",
+    "ERRORInvalideWEIGHT":"الرجاء إدخال وزن صالح",
+    "ERRORInvalideUOM":"الرجاء أدخل وحدة صالحة للقياس",
+    "ERRORInvalidePRICE":"الرجاء إدخال سعر صالح",
+    "ERRORInvalideQUANTITY":"الرجاء إدخال كمية صالحة"
 }

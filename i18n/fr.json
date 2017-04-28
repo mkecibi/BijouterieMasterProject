@@ -24,6 +24,17 @@
     "UOM": "Unité de mesure",
     "PRICE":"Prix" ,
     "QUANTITY": "Quantité",
-    "ISACTIVE": "Actif"
+    "ISACTIVE": "Actif",
+
+    "ERRORInvalideName":"svp Entrez un nom valide",
+    "ERRORInvalideImageUrl":"svp Entrez url image valide",
+
+    "ERRORInvalideCODE":"svp Entrez un code valide",
+    "ERRORInvalideCOMMENT":"svp Entrez un commentaire valide",
+    "ERRORInvalideCOLOR":"svp Entrez une couleur valide",
+    "ERRORInvalideWEIGHT":"svp Entrez un poids valide",
+    "ERRORInvalideUOM":"svp Entrez une unité de mesure valide",
+    "ERRORInvalidePRICE":"svp Entrez un prix valide",
+    "ERRORInvalideQUANTITY":"svp Entrez une quantité valide"
 
 }
