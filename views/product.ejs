@@ -37,8 +37,9 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 .pageContent.product .responTable table td:nth-of-type(7):before {content:"<%= translation.PRICE %>";}
 .pageContent.product .responTable table td:nth-of-type(8):before {content:"<%= translation.QUANTITY %>";}
 .pageContent.product .responTable table td:nth-of-type(9):before {content:"<%= translation.ISACTIVE %>";}
-.pageContent.product .responTable table td:nth-of-type(10):before {content:"<%= translation.IMAGEURL %>";}
-.pageContent.product .responTable table td:nth-of-type(11):before {content:"<%= translation.ACTION %>";}
+.pageContent.product .responTable table td:nth-of-type(10):before {content:"<%= translation.INSTOCK %>";}
+.pageContent.product .responTable table td:nth-of-type(11):before {content:"<%= translation.IMAGEURL %>";}
+.pageContent.product .responTable table td:nth-of-type(12):before {content:"<%= translation.ACTION %>";}
 
 }
 
@@ -91,6 +92,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
             <th><%= translation.PRICE %></th>
             <th><%= translation.QUANTITY %></th>
             <th><%= translation.ISACTIVE %></th>
+            <th><%= translation.INSTOCK %></th>
             <th><%= translation.IMAGEURL %></th>
             <th><%= translation.ACTION %></th>
 				</tr>
@@ -107,11 +109,12 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
               <td ><%= product.price %></td>
               <td ><%= product.quantity %></td>
               <td ><%= product.isactive %></td>
+              <td ><%= product.stock %></td>
               <td ><%= product.imageurl %></td>
               <td>
             <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
             onclick="fillEdit('<%= product.id %>','<%= product.productheader_id %>','<%= product.name %>','<%= product.code %>','<%= product.comment %>',
-            '<%= product.color %>','<%= product.weight %>','<%= product.uom %>','<%= product.price %>','<%= product.quantity %>','<%= product.isactive %>','<%= product.imageurl %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+            '<%= product.color %>','<%= product.weight %>','<%= product.uom %>','<%= product.price %>','<%= product.quantity %>','<%= product.isactive %>','<%= product.imageurl %>','<%= product.stock %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
 
 							<div class="col-xs-3 col-md-6 noPadLR "><a href="/deleteproduct/<%= product.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
@@ -188,6 +191,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                                     oninput="setCustomValidity('')"  >
                           <label class="glyphicon glyphicon-user"></label>
                         </div>
+
                         <div class="form-group col-md-6">
                         <% if (productheaders) { %>
                              <span class="select">
@@ -203,6 +207,13 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                               </span>    
                         <% } %>
                         </div>   
+
+
+                         <br > <br >
+                         <div  class="form-group col-md-6">
+                          <input id="instockadd" name="instockadd"  class="customCheckBox"  type="checkbox">
+                          <label for="instockadd" class="customCheckBox-label"><%= translation.INSTOCK %></label>
+                         </div>
 
                         <div class="clearfix space0"></div>
 
@@ -301,10 +312,18 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                         </select>
                               </span>    
                         <% } %>
-                        </div>   
+                        </div>  
+
+                        <br > <br >
+
+                         <div  class="form-group col-md-6">
+                          <input id="instockedit" name="instockedit"  class="customCheckBox"  type="checkbox">
+                          <label for="instockedit" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
+                         </div>
+
                         <div  class="form-group col-md-6">
                           <input id="isactiveedit" name="isactiveedit"  class="customCheckBox"  type="checkbox">
-                          <label for="isactiveedit" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
+                          <label for="isactiveedit" class="customCheckBox-label"><%= translation.INSTOCK %></label>
                          </div>
 
                         <div class="clearfix space0"></div>
@@ -331,7 +350,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
   </div>
 </div>
 <script>
-function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl) {
+function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl,stock) {
 
     document.getElementById('productheaderledit').selectedIndex = productheader_id;
 
@@ -353,7 +372,7 @@ function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,pri
     document.getElementById("priceedit").value = price
     document.getElementById("quantityedit").value = quantity
     document.getElementById("isactiveedit").checked = ((isactive == 1) ? true : false)
-
+    document.getElementById("instockedit").checked = ((stock == 1) ? true : false)
     document.getElementById("Iamgeurledit").value = imageurl
 }
 

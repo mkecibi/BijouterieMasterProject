@@ -25,6 +25,7 @@
     "PRICE":"السعر" ,
     "QUANTITY": "الكمية",
     "ISACTIVE": "نشط",
+    "INSTOCK": "في المخزن",
 
     "ERRORInvalideName":"الرجاء أدخل اسم صالح",
     "ERRORInvalideImageUrl":"الرجاء أدخل رابط الصورة صالح",

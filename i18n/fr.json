@@ -25,6 +25,7 @@
     "PRICE":"Prix" ,
     "QUANTITY": "Quantité",
     "ISACTIVE": "Actif",
+    "INSTOCK": "En stock",
 
     "ERRORInvalideName":"svp Entrez un nom valide",
     "ERRORInvalideImageUrl":"svp Entrez url image valide",

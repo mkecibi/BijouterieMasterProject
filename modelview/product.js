@@ -64,7 +64,8 @@ class ProductViewModel {
                                             uom: body.uomadd || product.get('uom'),
                                             price: body.priceadd || product.get('price'),
                                             quantity: body.quantityadd || product.get('quantity'),
-                                            isactive:((body.isactiveadd == "on") ? 1 : 0)
+                                            isactive:((body.isactiveadd == "on") ? 1 : 0),
+                                            stock:((body.instockadd == "on") ? 1 : 0)
             })
             .save()
             .then(function (Product) {
@@ -99,7 +100,9 @@ class ProductViewModel {
                                                 uom: body.uomedit || product.get('uom'),
                                                 price: body.priceedit || product.get('price'),
                                                 quantity: body.quantityedit || product.get('quantity'),
-                                                isactive:((body.isactiveedit == "on") ? 1 : 0)
+                                                isactive:((body.isactiveedit == "on") ? 1 : 0),
+                                                stock:((body.isactiveedit == "on") ? 1 : 0)
+                                                
                                 })
                                 .then(function () {
                                       console.log("Product saved with success");
