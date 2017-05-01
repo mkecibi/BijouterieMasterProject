@@ -26,6 +26,12 @@
     "QUANTITY": "Quantité",
     "ISACTIVE": "Actif",
     "INSTOCK": "En stock",
+    "TPS":"Tps" ,
+    "QSt":"Tvq" ,
+    "TAX":"Impôt" ,
+    "ECOFEE":"Frais Eco",
+    "COST":"Coût",
+    "PRICEROUNDED":"Prix arrondis",
 
     "ERRORInvalideName":"svp Entrez un nom valide",
     "ERRORInvalideImageUrl":"svp Entrez url image valide",
@@ -36,6 +42,7 @@
     "ERRORInvalideWEIGHT":"svp Entrez un poids valide",
     "ERRORInvalideUOM":"svp Entrez une unité de mesure valide",
     "ERRORInvalidePRICE":"svp Entrez un prix valide",
-    "ERRORInvalideQUANTITY":"svp Entrez une quantité valide"
+    "ERRORInvalideQUANTITY":"svp Entrez une quantité valide",
+    "ERRORInvalideVALUE":"S'il vous plait, entrez un nombre valide"
 
 }

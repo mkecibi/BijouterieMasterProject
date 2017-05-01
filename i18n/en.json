@@ -26,6 +26,12 @@
     "QUANTITY": "Quantity",
     "ISACTIVE": "Active",
     "INSTOCK": "In stock",
+    "TPS":"Tps" ,
+    "QSt":"Qst" ,
+    "TAX":"Tax" ,
+    "ECOFEE":"Ecofee",
+    "COST":"Cost",
+    "PRICEROUNDED":"Price rounded",
 
     "ERRORInvalideName":"Please Enter valid name",
     "ERRORInvalideImageUrl":"Please Enter valid image url",
@@ -35,6 +41,7 @@
     "ERRORInvalideWEIGHT":"Please Enter valid weight",
     "ERRORInvalideUOM":"Please Enter valid Unit of measure",
     "ERRORInvalidePRICE":"Please Enter valid price",
-    "ERRORInvalideQUANTITY":"Please Enter valid quantity"
+    "ERRORInvalideQUANTITY":"Please Enter valid quantity",
+    "ERRORInvalideVALUE":"Please Enter a valid number"
 
 }

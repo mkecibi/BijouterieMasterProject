@@ -101,8 +101,12 @@ class ProductViewModel {
                                                 price: body.priceedit || product.get('price'),
                                                 quantity: body.quantityedit || product.get('quantity'),
                                                 isactive:((body.isactiveedit == "on") ? 1 : 0),
-                                                stock:((body.isactiveedit == "on") ? 1 : 0)
-                                                
+                                                stock:((body.isactiveedit == "on") ? 1 : 0),
+                                                tps:  body.tps || product.get('tps'),
+                                                tvq:  body.tvq || product.get('tvq'),
+                                                taxany:  body.taxany || product.get('taxany'),
+                                                ecofee:  body.ecofee || product.get('ecofee'),
+                                                name:  body.nameedit || product.get('name'),
                                 })
                                 .then(function () {
                                       console.log("Product saved with success");

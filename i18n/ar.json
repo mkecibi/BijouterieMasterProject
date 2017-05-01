@@ -26,6 +26,12 @@
     "QUANTITY": "الكمية",
     "ISACTIVE": "نشط",
     "INSTOCK": "في المخزن",
+    "TPS":"Tps" ,
+    "QSt":"Tvq" ,
+    "TAX":"ضريبة" ,
+    "ECOFEE":"رسوم بيئية",
+    "COST":"كلفة",
+    "PRICEROUNDED":"سعر مدورة",
 
     "ERRORInvalideName":"الرجاء أدخل اسم صالح",
     "ERRORInvalideImageUrl":"الرجاء أدخل رابط الصورة صالح",
@@ -36,5 +42,6 @@
     "ERRORInvalideWEIGHT":"الرجاء إدخال وزن صالح",
     "ERRORInvalideUOM":"الرجاء أدخل وحدة صالحة للقياس",
     "ERRORInvalidePRICE":"الرجاء إدخال سعر صالح",
-    "ERRORInvalideQUANTITY":"الرجاء إدخال كمية صالحة"
+    "ERRORInvalideQUANTITY":"الرجاء إدخال كمية صالحة",
+    "ERRORInvalideVALUE":"الرجاء إدخال رقم صحيح"
 }

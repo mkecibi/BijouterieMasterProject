@@ -110,11 +110,11 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
               <td ><%= product.quantity %></td>
               <td ><%= product.isactive %></td>
               <td ><%= product.stock %></td>
-              <td ><%= product.imageurl %></td>
               <td>
             <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
             onclick="fillEdit('<%= product.id %>','<%= product.productheader_id %>','<%= product.name %>','<%= product.code %>','<%= product.comment %>',
-            '<%= product.color %>','<%= product.weight %>','<%= product.uom %>','<%= product.price %>','<%= product.quantity %>','<%= product.isactive %>','<%= product.imageurl %>','<%= product.stock %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+            '<%= product.color %>','<%= product.weight %>','<%= product.uom %>','<%= product.price %>','<%= product.quantity %>','<%= product.isactive %>','<%= product.imageurl %>','<%= product.stock %>',
+            '<%= product.tps %>','<%= product.tvq %>','<%= product.taxany %>','<%= product.ecofee %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
 
 							<div class="col-xs-3 col-md-6 noPadLR "><a href="/deleteproduct/<%= product.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
@@ -136,60 +136,63 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                         <div class="form-group col-md-6">
                        <input  type="text" id="nameadd" name="nameadd" placeholder="<%= translation.NAME %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideName %>')"
                                     oninput="setCustomValidity('')"  autofocus >
-                        <label class="fa fa-address-card"></label>
                         </div>
-
                         <div  class="form-group col-md-6">
+                                                
                         <input  type="text" id="codeadd" name="codeadd" placeholder="<%= translation.CODE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCODE %>')"
                                     oninput="setCustomValidity('')"   >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
                        <input  type="text" id="commentadd" name="commentadd" placeholder="<%= translation.COMMENT %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCOMMENT %>')"
                                     oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
                        <input  type="color" id="coloradd" name="coloradd" placeholder="<%= translation.COLOR %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCOLOR %>')"
                                     oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
                        <input  type="number" step="any" id="weightadd" name="weightadd" placeholder="<%= translation.WEIGHT %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideWEIGHT %>')"
                                     oninput="setCustomValidity('')"  >   
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
                        <input  type="text" id="uomadd" name="uomadd" placeholder="<%= translation.UOM %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideUOM %>')"
                                     oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
                        <input  type="number" step="any" id="priceadd" name="priceadd" placeholder="<%= translation.PRICE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalidePRICE %>')"
                                     oninput="setCustomValidity('')"  >  
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
                         <div  class="form-group col-md-6">
                        <input  type="number" step="any" id="quantityadd" name="quantityadd" placeholder="<%= translation.QUANTITY %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideQUANTITY %>')"
                                     oninput="setCustomValidity('')"  >  
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
-                         <div  class="form-group col-md-6">
-                          <input id="isactiveadd" name="isactiveadd"  class="customCheckBox"  type="checkbox">
-                          <label for="isactiveadd" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
+                       <div  class="form-group col-md-6">
+                       <input  type="text" id="Iamgeurladd" name="Iamgeurladd" placeholder="<%= translation.IMAGEURL %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideImageUrl %>')"
+                                    oninput="setCustomValidity('')"  >
                         </div>
 
                         <div  class="form-group col-md-6">
-                       <input  type="text" id="Iamgeurladd" name="Iamgeurladd" placeholder="<%= translation.IMAGEURL %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideImageUrl %>')"
-                                    oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
+                       <input  type="number" step="any" id="tpsadd" name="tpsadd" placeholder="<%= translation.TPS %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideVALUE %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                       <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="tvqadd" name="tvqadd" placeholder="<%= translation.QSt %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideVALUE %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                        <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="taxanyadd" name="taxanyadd" placeholder="<%= translation.TAX %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideVALUE %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                        <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="ecofeeadd" name="ecofeeadd" placeholder="<%= translation.ECOFEE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideVALUE %>')"
+                                    oninput="setCustomValidity('')"  >  
                         </div>
 
                         <div class="form-group col-md-6">
@@ -208,15 +211,18 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                         <% } %>
                         </div>   
 
+                        <br > <br >
 
-                         <br > <br >
                          <div  class="form-group col-md-6">
                           <input id="instockadd" name="instockadd"  class="customCheckBox"  type="checkbox">
-                          <label for="instockadd" class="customCheckBox-label"><%= translation.INSTOCK %></label>
+                          <label for="instockadd" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
                          </div>
 
+                        <div  class="form-group col-md-6">
+                          <input id="isactiveadd" name="isactiveadd"  class="customCheckBox"  type="checkbox">
+                          <label for="isactiveadd" class="customCheckBox-label"><%= translation.INSTOCK %></label>
+                         </div>
                         <div class="clearfix space0"></div>
-
                         <div class="form-group col-md-3 col-xs-6 noMarB">
                         <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
@@ -237,61 +243,87 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                     <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
                <form action="/editproduct" method="post">
+
+                       <div class="col-sm-8 fa  "><%= translation.IMAGEURL %> </div>
+                        <div  class="form-group col-md-6">
+                        <input  type="text" id="Iamgeurledit" name="Iamgeurledit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideImageUrl %>')"
+                                    oninput="setCustomValidity('')"  >
+                        </div>
+
+                       <div class="col-sm-8 fa  "><%= translation.NAME %></div>
                         <div  class="form-group col-md-6">
                         <input type="hidden" id="idedit"  name="idedit" value="" >
                         <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideName %>')"
                                     oninput="setCustomValidity('')"  autofocus >
-                        <label class="fa fa-address-card"></label>
                         </div>
 
+                       <div class="col-sm-8 fa  "><%= translation.CODE %></div>
                         <div  class="form-group col-md-6">
                          <input  type="text" id="codeedit" name="codeedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCODE %>')"
                                     oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
+                       <div class="col-sm-8 fa  "><%= translation.COMMENT %> </div>
                         <div  class="form-group col-md-6">
                          <input  type="text" id="commentedit" name="commentedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCOMMENT %>')"
                                     oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
+                       <div class="col-sm-8 fa  "><%= translation.COLOR %> </div>
                         <div  class="form-group col-md-6">
                         <input  type="color" id="coloredit" name="coloredit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCOLOR %>')"
                                     oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
+                       <div class="col-sm-8 fa  "><%= translation.WEIGHT %> </div>
                         <div  class="form-group col-md-6">
                         <input  type="number" step="any" id="weightedit" name="weightedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideWEIGHT %>')"
                                     oninput="setCustomValidity('')"  >  
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
+                       <div class="col-sm-8 fa  "><%= translation.UOM %> </div>
                         <div  class="form-group col-md-6">
                         <input  type="text" id="uomedit" name="uomedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideUOM %>')"
                                     oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
+                       <div class="col-sm-8 fa  "><%= translation.PRICE %> </div>
                         <div  class="form-group col-md-6">
                         <input  type="number" step="any" id="priceedit" name="priceedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalidePRICE %>')"
                                     oninput="setCustomValidity('')"  > 
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
+                       <div class="col-sm-8 fa  "><%= translation.QUANTITY %> </div>
                         <div  class="form-group col-md-6">
                         <input  type="number" step="any" id="quantityedit" name="quantityedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideQUANTITY %>')"
                                     oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
                         </div>
 
+
+                       <div class="col-sm-8 fa  "><%= translation.TPS %> </div>
                         <div  class="form-group col-md-6">
-                        <input  type="text" id="Iamgeurledit" name="Iamgeurledit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideImageUrl %>')"
-                                    oninput="setCustomValidity('')"  >
-                          <label class="glyphicon glyphicon-user"></label>
+                       <input  type="number" step="any" id="tpsedit" name="tpsedit"  value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideVALUE %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                       <div class="col-sm-8 fa  "><%= translation.QSt %> </div>
+                       <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="tvqedit" name="tvqedit"  value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideVALUE %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                       <div class="col-sm-8 fa  "><%= translation.TAX %> </div>
+                        <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="taxanyedit" name="taxanyedit"  value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideVALUE %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                       <div class="col-sm-8 fa  "><%= translation.ECOFEE %> </div>
+                        <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="ecofeeedit" name="ecofeeedit"  value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideVALUE %>')"
+                                    oninput="setCustomValidity('')"  >  
                         </div>
 
+
+
+                       <div class="col-sm-8 fa  "><%= translation.NAME %></div>
                         <div class="form-group col-md-6">
                         <% if (productheaders) { %>
                              <span class="select">
@@ -331,7 +363,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                         <div class="form-group col-md-3 col-xs-6 noMarB">
                         <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
-                        </div>
+                       
           </form>
 
       </div>
@@ -350,7 +382,8 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
   </div>
 </div>
 <script>
-function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl,stock) {
+function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl,stock,
+tps ,tvq ,taxany,ecofee) {
 
     document.getElementById('productheaderledit').selectedIndex = productheader_id;
 
@@ -374,6 +407,11 @@ function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,pri
     document.getElementById("isactiveedit").checked = ((isactive == 1) ? true : false)
     document.getElementById("instockedit").checked = ((stock == 1) ? true : false)
     document.getElementById("Iamgeurledit").value = imageurl
+
+    document.getElementById("tpsedit").value = tps
+    document.getElementById("tvqedit").value = tvq
+    document.getElementById("taxanyedit").value = taxany
+    document.getElementById("ecofeeedit").value = ecofee
 }
 
 
