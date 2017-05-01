@@ -14,9 +14,14 @@
     "PREVIOUS":"Previous",
     "SAVE":"Save",
     "FIELDSMANDATORY":"Fields are mandatory",
-    "NAME":"Name",
-    "IMAGEURL":"ImageUrl",
     "ACTION":"Action",
+    "NAME":"Name",
+    "ADDRESS":"Address",
+    "EMAIL":"Email",
+    "WEBSITE":"Website",
+    "TEL":"Tel",
+    "TYPE":"Type",
+    "IMAGEURL":"ImageUrl",
   	"CODE": "Code",
   	"COMMENT": "Comment",
     "COLOR":"Color",
@@ -32,6 +37,16 @@
     "ECOFEE":"Ecofee",
     "COST":"Cost",
     "PRICEROUNDED":"Price rounded",
+
+
+    "PRODUCT":"Product Detail",
+    "PRODUCTHEADER":"Category",
+    "SUPPLIER":"Supplier",
+    "BRANCHE":"Branche",
+    "PROFILE":"Profile",
+    "CLIENT":"CLient",
+    "USER":"User",
+
 
     "ERRORInvalideName":"Please Enter valid name",
     "ERRORInvalideImageUrl":"Please Enter valid image url",

@@ -1,5 +1,5 @@
 "use strict";
-const routeBase = require("./../routes");
+const routeBase = require("./routes");
 const  supplierViewModel = require('./../modelview/supplier.js');
 const supplierVML = supplierViewModel.SupplierViewModel.getInstance() ;
 
@@ -18,31 +18,29 @@ class SupplierRoute extends routeBase.BaseRoute {
 
     static create(router,db) {
 
-     /*   router.get('/suppliers',this.prototype.ensureAuthenticated,function (req, res) {
-                productheaderVML.getSuppliers(db).then(function (collection) {
-                        res.locals.productheaders = collection.toJSON() ;
-                    productVML.getProducts(db)
+        router.get('/suppliers',this.prototype.ensureAuthenticated,function (req, res) {
+                      
+                    supplierVML.getSuppliers(db)
                     .then(function (collection) {  
                     if (!collection) {
                         res.status(404).json({error: true, data: {}});
                     }
                     else {
-                        res.render("product", { products: collection.toJSON() });
+                        res.render("supplier", { suppliers: collection.toJSON() });
                     }
                     })
                     .catch(function (err) {
                     res.status(500).json({error: true, data: {message: err.message}});
-                    });
-                    })
+                    })                   
                     .catch(function (err) {
                         res.status(500).json({error: true, data: {message: err.message}});
               });
         });
 
-        router.post("/editproduct", this.prototype.ensureAuthenticated, function(req, res, next) {
-                 productVML.update(db,req.body).then(function () {
+        router.post("/editsupplier", this.prototype.ensureAuthenticated, function(req, res, next) {
+                 supplierVML.update(db,req.body).then(function () {
                             req.flash("info", "Profile updated!");
-                            res.redirect("/products");
+                            res.redirect("/suppliers");
                 })
                 .catch(function (err) {
                     res.status(500).json({error: true, data: {message: err.message}});
@@ -52,10 +50,10 @@ class SupplierRoute extends routeBase.BaseRoute {
             });
         });
 
-        router.post("/createproduct", this.prototype.ensureAuthenticated,function(req, res, next) {
-                 productVML.save(db,req.body).then(function () {
+        router.post("/createsupplier", this.prototype.ensureAuthenticated,function(req, res, next) {
+                 supplierVML.save(db,req.body).then(function () {
                                 req.flash("info", "Profile updated!");
-                                res.redirect("/products");
+                                res.redirect("/suppliers");
                     })
                     .catch(function (err) {
                         res.status(500).json({error: true, data: {message: err.message}});
@@ -64,15 +62,15 @@ class SupplierRoute extends routeBase.BaseRoute {
                     res.status(500).json({error: true, data: {message: err.message}});
                });
         });
-        router.get("/deleteproduct/:id", this.prototype.ensureAuthenticated,function(req, res, next) {
-                    productVML.delete(db,req.params.id).then(function () {
+        router.get("/deletesupplier/:id", this.prototype.ensureAuthenticated,function(req, res, next) {
+                    supplierVML.delete(db,req.params.id).then(function () {
                             req.flash("info", "Profile updated!");
-                            res.redirect("/products");
+                            res.redirect("/suppliers");
                 })
                         .catch(function (err) {
                             res.status(500).json({error: true, data: {message: err.message}});
                         });
-        });*/
+        });
 
     }
 }

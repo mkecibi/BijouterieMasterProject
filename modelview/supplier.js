@@ -59,12 +59,12 @@ class SupplierViewModel {
 
     save(db,body) {
         return    db.Supplier.forge({
-                                        username:  body.nameadd || supplier.get('name'),
+                                        name:  body.nameadd || supplier.get('name'),
                                         email: body.emailadd || supplier.get('email'),
                                         website: body.websiteadd || supplier.get('website'),
                                         address:body.addressadd || supplier.get('address'),
                                         tel:body.teladd || supplier.get('tel'),
-                                        tyope: body.typeadd || supplier.get('type'),
+                                        type: body.typeadd || supplier.get('type'),
                                         isactive:((body.isactiveadd == "on") ? 1 : 0)
             })
             .save()
@@ -85,12 +85,12 @@ class SupplierViewModel {
                                 .fetch({require: true})
                                 .then(function (supplier) {
                                 supplier.save({
-                                        username:  body.nameedit || supplier.get('name'),
+                                        name:  body.nameedit || supplier.get('name'),
                                         email: body.emailedit || supplier.get('email'),
                                         website: body.websiteedit || supplier.get('website'),
                                         address:body.addressedit || supplier.get('address'),
                                         tel:body.teledit || supplier.get('tel'),
-                                        tyope: body.typeedit || supplier.get('type'),
+                                        type: body.typeedit || supplier.get('type'),
                                         isactive:((body.isactiveedit == "on") ? 1 : 0)
                                 })
                                 .then(function () {

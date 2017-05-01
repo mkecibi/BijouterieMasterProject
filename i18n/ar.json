@@ -15,6 +15,11 @@
     "SAVE":"حفظ",
     "FIELDSMANDATORY":"الحقول إلزامية",
     "NAME":"اسم",
+    "ADDRESS":"عنوان",
+    "EMAIL":"إمايل",
+    "WEBSITE":"الموقع الإلكتروني",
+    "TEL":"هاتف",
+    "TYPE":"نوع",
     "IMAGEURL":"رابط الصورة",
     "ACTION":"عمل",
   	"CODE": "كود",
@@ -32,6 +37,15 @@
     "ECOFEE":"رسوم بيئية",
     "COST":"كلفة",
     "PRICEROUNDED":"سعر مدورة",
+
+
+    "PRODUCT":"تفاصيل المنتج",
+    "PRODUCTHEADER":"الفئة",
+    "SUPPLIER":"المورد",
+    "BRANCHE":"فرع",
+    "PROFILE":"الملف الشخصي",
+    "CLIENT":"زبون",
+    "USER":"المستعمل",
 
     "ERRORInvalideName":"الرجاء أدخل اسم صالح",
     "ERRORInvalideImageUrl":"الرجاء أدخل رابط الصورة صالح",

@@ -14,6 +14,7 @@ const loginroute = require("./routes/login");
 const userroute = require("./routes/user");
 const productroute = require("./routes/product");
 const productheaderroute = require("./routes/productheader");
+const supplierroute = require("./routes/supplier");
 const profileroute = require("./routes/profile");
 const baseroute = require("./routes/routes");
 const i18n=require("i18n-express");
@@ -71,6 +72,7 @@ class Server {
                 profileroute.ProfileRoute.create(router,db);
                 productroute.ProductRoute.create(router,db);
                 productheaderroute.ProductHeaderRoute.create(router,db);
+                supplierroute.SupplierRoute.create(router,db);
                 this.app.use(router);
     }
 }

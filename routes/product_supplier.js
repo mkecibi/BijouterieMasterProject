@@ -1,5 +1,5 @@
 "use strict";
-const routeBase = require("./../routes");
+const routeBase = require("./routes");
 const  productSupplierViewModel = require('./../modelview/product_supplier.js');
 const productSupplierVML = productSupplierViewModel.ProductSupplierViewModel.getInstance() ;
 
