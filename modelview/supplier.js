@@ -81,7 +81,7 @@ class SupplierViewModel {
 //***************************** Add Update******************************************** */
 //***************************** Add Update******************************************** */
     update(db,body){
-                return db.Supplier.forge({id: body.id})
+                return db.Supplier.forge({id: body.idedit})
                                 .fetch({require: true})
                                 .then(function (supplier) {
                                 supplier.save({
@@ -101,7 +101,8 @@ class SupplierViewModel {
                                 });
                                 })
                                 .catch(function (err) {
-                                return err;});
+                                    return err;
+                        });
                 };
 //**************************************************************************************** */
     delete(db,id){

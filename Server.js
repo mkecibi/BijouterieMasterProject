@@ -15,9 +15,11 @@ const userroute = require("./routes/user");
 const productroute = require("./routes/product");
 const productheaderroute = require("./routes/productheader");
 const supplierroute = require("./routes/supplier");
+const brancheroute = require("./routes/branche");
 const profileroute = require("./routes/profile");
 const baseroute = require("./routes/routes");
 const i18n=require("i18n-express");
+
 class Server {
     static bootstrap() {
         return new Server();
@@ -73,6 +75,7 @@ class Server {
                 productroute.ProductRoute.create(router,db);
                 productheaderroute.ProductHeaderRoute.create(router,db);
                 supplierroute.SupplierRoute.create(router,db);
+                brancheroute.BrancheRoute.create(router,db);
                 this.app.use(router);
     }
 }

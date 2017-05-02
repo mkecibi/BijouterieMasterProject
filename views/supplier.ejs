@@ -119,32 +119,32 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                     </div>
                     <form action="/createsupplier" method="post">
                         <div class="form-group col-md-6">
-                       <input  type="text" id="nameadd" name="nameadd" placeholder="<%= translation.NAME %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideName %>')"
+                       <input  type="text" id="nameadd" name="nameadd" placeholder="<%= translation.NAME %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')"  autofocus >
                         </div>
                         <div  class="form-group col-md-6">
                                                 
-                        <input  type="text" id="addressadd" name="addressadd" placeholder="<%= translation.ADDRESS %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCODE %>')"
+                        <input  type="text" id="addressadd" name="addressadd" placeholder="<%= translation.ADDRESS %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')"   >
                         </div>
 
                         <div  class="form-group col-md-6">
-                       <input  type="email" id="emailadd" name="emailadd" placeholder="<%= translation.EMAIL %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCOMMENT %>')"
+                       <input  type="email" id="emailadd" name="emailadd" placeholder="<%= translation.EMAIL %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_EMAIL %>')"
                                     oninput="setCustomValidity('')"  >
                         </div>
 
                         <div  class="form-group col-md-6">
-                       <input  type="text" id="websiteadd" name="websiteadd" placeholder="<%= translation.WEBSITE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCOLOR %>')"
+                       <input  type="text" id="websiteadd" name="websiteadd" placeholder="<%= translation.WEBSITE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_WEBSITE %>')"
                                     oninput="setCustomValidity('')"  >
                         </div>
 
                         <div  class="form-group col-md-6">
-                       <input  type="text" step="any" id="teladd" name="teladd" placeholder="<%= translation.TEL %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideWEIGHT %>')"
+                       <input  type="text" step="any" id="teladd" name="teladd" placeholder="<%= translation.TEL %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')"  >   
                         </div>
 
                         <div  class="form-group col-md-6">
-                       <input  type="text" id="typeadd" name="typeadd" placeholder="<%= translation.TYPE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideUOM %>')"
+                       <input  type="text" id="typeadd" name="typeadd" placeholder="<%= translation.TYPE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')"  >
                         </div>
 
@@ -179,37 +179,36 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                        <div class="col-sm-8 fa  "><%= translation.NAME %></div>
                         <div  class="form-group col-md-6">
                         <input type="hidden" id="idedit"  name="idedit" value="" >
-                        <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideName %>')"
+                        <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')"  autofocus >
                         </div>
 
                        <div class="col-sm-8 fa  "><%= translation.ADDRESS %></div>
                         <div  class="form-group col-md-6">
-                         <input  type="text" id="addressedit" name="addressedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCODE %>')"
+                         <input  type="text" id="addressedit" name="addressedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')"  >
                         </div>
 
+
+                        <div class="col-sm-8 fa  "><%= translation.TEL %> </div>
+                        <div  class="form-group col-md-6">
+                         <input  type="text" id="teledit" name="teledit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
+                                    oninput="setCustomValidity('')"  >
+                        </div>
                        <div class="col-sm-8 fa  "><%= translation.EMAIL %> </div>
                         <div  class="form-group col-md-6">
-                         <input  type="text" id="teledit" name="teledit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCOMMENT %>')"
+                        <input  type="email" id="emailedit" name="emailedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_EMAIL %>')"
                                     oninput="setCustomValidity('')"  >
                         </div>
-
                        <div class="col-sm-8 fa  "><%= translation.WEBSITE %> </div>
                         <div  class="form-group col-md-6">
-                        <input  type="email" id="emailedit" name="emailedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideCOLOR %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.TEL %> </div>
-                        <div  class="form-group col-md-6">
-                        <input  type="text" step="any" id="websiteedit" name="websiteedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideWEIGHT %>')"
+                        <input  type="text" step="any" id="websiteedit" name="websiteedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_WEBSITE %>')"
                                     oninput="setCustomValidity('')"  >  
                         </div>
 
                        <div class="col-sm-8 fa  "><%= translation.TYPE %> </div>
                         <div  class="form-group col-md-6">
-                        <input  type="text" id="typeedit" name="typeedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalideUOM %>')"
+                        <input  type="text" id="typeedit" name="typeedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')"  >
                         </div>
 
@@ -243,9 +242,8 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
   </div>
 </div>
 <script>
-function fillEdit(id,name ,address,tel ,email,website ,type ) {
+function fillEdit(id,name ,address,tel ,email,website ,type, isactive) {
 
-        
     document.getElementById("idedit").value = id
     document.getElementById("nameedit").value = name
     document.getElementById("addressedit").value = address
@@ -253,7 +251,7 @@ function fillEdit(id,name ,address,tel ,email,website ,type ) {
     document.getElementById("emailedit").value = email
     document.getElementById("websiteedit").value = website
     document.getElementById("typeedit").value = type
-    document.getElementById("instockedit").checked = ((stock == 1) ? true : false)
+    document.getElementById("isactiveedit").checked = ((isactive == 1) ? true : false)
 }
 
 

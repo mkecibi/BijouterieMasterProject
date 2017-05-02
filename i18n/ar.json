@@ -47,15 +47,8 @@
     "CLIENT":"زبون",
     "USER":"المستعمل",
 
-    "ERRORInvalideName":"الرجاء أدخل اسم صالح",
-    "ERRORInvalideImageUrl":"الرجاء أدخل رابط الصورة صالح",
-
-    "ERRORInvalideCODE":"الرجاء إدخال رمز صالح",
-    "ERRORInvalideCOMMENT":"الرجاء إدخال تعليق صالح",
-    "ERRORInvalideCOLOR":"الرجاء إدخال لون صالح",
-    "ERRORInvalideWEIGHT":"الرجاء إدخال وزن صالح",
-    "ERRORInvalideUOM":"الرجاء أدخل وحدة صالحة للقياس",
-    "ERRORInvalidePRICE":"الرجاء إدخال سعر صالح",
-    "ERRORInvalideQUANTITY":"الرجاء إدخال كمية صالحة",
-    "ERRORInvalideVALUE":"الرجاء إدخال رقم صحيح"
+    "ERRORInvalide_TEXT":"لرجاء إدخال معلومات صالحة",
+    "ERRORInvalide_NUMBER":"الرجاء إدخال رقم صحيح",
+    "ERRORInvalide_EMAIL":"الرجاء إدخال بريد إلكتروني صالح",
+    "ERRORInvalide_WEBSITE":"الرجاء إدخال موقع ويب صالح"
 }

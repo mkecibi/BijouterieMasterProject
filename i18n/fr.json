@@ -46,16 +46,9 @@
     "CLIENT":"CLient",
     "USER":"Utilisateur",
 
-    "ERRORInvalideName":"svp Entrez un nom valide",
-    "ERRORInvalideImageUrl":"svp Entrez url image valide",
 
-    "ERRORInvalideCODE":"svp Entrez un code valide",
-    "ERRORInvalideCOMMENT":"svp Entrez un commentaire valide",
-    "ERRORInvalideCOLOR":"svp Entrez une couleur valide",
-    "ERRORInvalideWEIGHT":"svp Entrez un poids valide",
-    "ERRORInvalideUOM":"svp Entrez une unité de mesure valide",
-    "ERRORInvalidePRICE":"svp Entrez un prix valide",
-    "ERRORInvalideQUANTITY":"svp Entrez une quantité valide",
-    "ERRORInvalideVALUE":"S'il vous plait, entrez un nombre valide"
-
+    "ERRORInvalide_TEXT":"Veuillez saisir une information valide",
+    "ERRORInvalide_NUMBER":"Entrez un numéro valide",
+    "ERRORInvalide_EMAIL":"Entrez un email valide",
+    "ERRORInvalide_WEBSITE":"Entrez un site Web valide"
 }

@@ -30,10 +30,10 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 .pageContent .responTable table td:last-of-type > div{text-align:left!important;}
 .pageContent .responTable table td.txtRight{ text-align:left!important;}
 
-.pageContent.productheader .responTable table td:nth-of-type(1):before {content:"<%= translation.NAME %>";}
-.pageContent.productheader .responTable table td:nth-of-type(2):before {content:"<%= translation.IMAGEURL %>";}
-.pageContent.productheader .responTable table td:nth-of-type(3):before {content:"<%= translation.ISACTIVE %>";}
-.pageContent.productheader .responTable table td:nth-of-type(4):before {content:"<%= translation.ACTION %>";}
+.pageContent.branche .responTable table td:nth-of-type(1):before {content:"<%= translation.NAME %>";}
+.pageContent.branche .responTable table td:nth-of-type(2):before {content:"<%= translation.ADDRESS %>";}
+.pageContent.branche .responTable table td:nth-of-type(3):before {content:"<%= translation.ISACTIVE %>";}
+.pageContent.branche .responTable table td:nth-of-type(4):before {content:"<%= translation.ACTION %>";}
 
 }
 
@@ -73,30 +73,30 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 
         <div class="tab-pane fade in active  padAll col-sm-12" id="display">
 		    <a  href="#add"  data-toggle="tab" onclick="ShowOnlyAdd()"><input class="simpleBtn" type="submit" name="" value="<%= translation.ADD %>"></a>
-            <div class="pageContent productheader">
+            <div class="pageContent branche">
                 <div class="col-xs-12 noPadLR responTable">
                     <div class="col-xs-12 noPadLR">
                         <table>
                         <thead>
                             <tr>
                                 <th><%= translation.NAME %></th>
-                                <th><%= translation.IMAGEURL %></th>
+                                <th><%= translation.ADDRESS %></th>
                                 <th><%= translation.ISACTIVE %></th>
                                 <th><%= translation.ACTION %></th>
                             </tr>
                             </thead>
                             <tbody>
-                    <% productheaders.forEach(function(productheader) { %>
-                                <tr>
-                                    <td ><%= productheader.name %></td>
-                                    <td ><%= productheader.imageurl %></td>
-                        <td ><%= productheader.isactive %></td>
-                                    <td>
-                                        <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= productheader.id %>','<%= productheader.name %>','<%= productheader.imageurl %>','<%= productheader.isactive %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
-                                        <div class="col-xs-3 col-md-6 noPadLR "><a href="/delete/<%= productheader.id %>"><i class="fa fa-trash-o"></i></a></div>
-                                    </td>
-                                </tr>
-                    <% }) %>
+                                <% branches.forEach(function(branche) { %>
+                                    <tr>
+                                        <td ><%= branche.name %></td>
+                                        <td ><%= branche.address %></td>
+                                        <td ><%= branche.isactive %></td>
+                                        <td>
+                                            <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= branche.id %>','<%= branche.name %>','<%= branche.address %>','<%= branche.isactive %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+                                            <div class="col-xs-3 col-md-6 noPadLR "><a href="/delete/<%= branche.id %>"><i class="fa fa-trash-o"></i></a></div>
+                                        </td>
+                                    </tr>
+                                <% }) %>
                             </tbody>	
                         </table>
                     </div>
@@ -109,24 +109,16 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                 <div class="form-group col-sm-12">
                    <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
-                    <form id="registerform" action="/createproductheader" method="post" >
-                            <div class="form-group">
-                                    <label class="control-label col-sm-2" for="email">Email:</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="email" name="email" oninvalid="this.setCustomValidity('Please Enter valid email')"
-                                            oninput="setCustomValidity('')" required  placeholder="Enter email" >
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                            </div>
+                    <form id="registerform" action="/createbranche" method="post" >
                             <div class="form-group col-md-6">
-                            <input  type="text" id="nameadd" name="nameadd" required  oninvalid="this.setCustomValidity('Please Enter valid name')"
+                            <input  type="text" id="nameadd" name="nameadd" required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')" placeholder="<%= translation.NAME %>"  value="" tabindex="1"   autofocus >
-                                    <div class="help-block with-errors"></div>
+                                    <label class="glyphicon glyphicon-pencil"></label>
                             </div>
                             <div class="form-group col-md-6">
-                            <input  type="text" id="imgurladd" name="imgurladd" required  oninvalid="this.setCustomValidity('Please Enter valid ImageUrl')"
-                                    oninput="setCustomValidity('')" placeholder="<%= translation.IMAGEURL %>"   value="" tabindex="1"   >
-                                    <div class="help-block with-errors"></div>
+                            <input  type="text" id="imgurladd" name="addressadd" required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
+                                    oninput="setCustomValidity('')" placeholder="<%= translation.ADDRESS %>"   value="" tabindex="1"   >
+                                    <label class="glyphicon glyphicon-pencil"></label>
                             </div>
 
                             <div  class="form-group col-md-6">
@@ -157,15 +149,17 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                 <div class="form-group col-sm-12">
                     <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
-                   <form id="registerform" action="/productheaderedit" method="post">
+                   <form  action="/brancheedit" method="post">
                             <div  class="form-group col-md-6">
                                 <input type="hidden" id="idedit"  name="idedit" value="">
-                                <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1" required  autofocus >
-                                <label class="fa fa-address-card"></label>
+                                <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"  required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
+                                    oninput="setCustomValidity('')"  autofocus >
+                                    <label class="glyphicon glyphicon-pencil"></label>
                             </div>
                             <div  class="form-group col-md-6">
-                                <input  type="text" id="Iamgeurledit" name="Iamgeurledit" value="" tabindex="1" required  >
-                                <label class="glyphicon glyphicon-user"></label>
+                                <input  type="text" id="addressedit" name="addressedit" value="" tabindex="1" required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
+                                    oninput="setCustomValidity('')"  >
+                                    <label class="glyphicon glyphicon-pencil"></label>
                             </div>
                             <div  class="form-group col-md-6">
                                 <input id="isactiveedit" name="isactiveedit"  class="customCheckBox"  type="checkbox">
@@ -204,10 +198,11 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 function fillEdit(param1,param2,param3,isactive) {
     document.getElementById("idedit").value = param1
     document.getElementById("nameedit").value = param2
-    document.getElementById("Iamgeurledit").value = param3
+    document.getElementById("addressedit").value = param3
     document.getElementById("isactiveedit").checked = ((isactive == 1) ? true : false)
 
 }
+
 function ShowOnlyEdit() {
     $('#myTab a[href="#edit"]').tab('show');
     $('#display-collapse').collapse('hide');
@@ -226,47 +221,6 @@ function ShowOnlyAdd() {
     $('#edit-collapse').collapse('hide');
     $('#add-collapse').collapse('show');
 }
-
-$('input[required]').on('invalid', function() {
-    this.setCustomValidity($(this).data("required-message"));
-});
-
-
-jj
-    rules:{
-        errorClass: "error",
-        'email':{
-            required: true,
-            email: true
-        },
-        'nameadd':{
-            required: true,
-            minlength: 5
-        },
-        'pwdcnf':{
-            required: true,
-            minlength: 5,
-            equalTo: "#password"
-        }
-    },
-    messages:{
-        'email':{
-            required:"This field is required",
-            minlength:"Your email must be at least 5 character long"
-        },
-
-        'pwd':{
-            required:"This field is required",
-            minlength:"Your password must be at least 5 character long"
-        },
-        'pwdcnf':{
-            required:"This field is required",
-            minlength:"Your password must be at least 5 character long",
-            equalTo:"Your password does not match"
-        }
-    }
-
-
 </script>
 </body>
 </html>

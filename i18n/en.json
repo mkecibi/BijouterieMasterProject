@@ -48,15 +48,9 @@
     "USER":"User",
 
 
-    "ERRORInvalideName":"Please Enter valid name",
-    "ERRORInvalideImageUrl":"Please Enter valid image url",
-    "ERRORInvalideCODE":"Please Enter valid code",
-    "ERRORInvalideCOMMENT":"Please Enter valid comment",
-    "ERRORInvalideCOLOR":"Please Enter valid color",
-    "ERRORInvalideWEIGHT":"Please Enter valid weight",
-    "ERRORInvalideUOM":"Please Enter valid Unit of measure",
-    "ERRORInvalidePRICE":"Please Enter valid price",
-    "ERRORInvalideQUANTITY":"Please Enter valid quantity",
-    "ERRORInvalideVALUE":"Please Enter a valid number"
+    "ERRORInvalide_TEXT":"Please Enter valid Info",
+    "ERRORInvalide_NUMBER":"Please Enter valid number",
+    "ERRORInvalide_EMAIL":"Please Enter valid email",
+    "ERRORInvalide_WEBSITE":"Please Enter valid web site"
 
 }
