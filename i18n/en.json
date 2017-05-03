@@ -38,10 +38,12 @@
     "COST":"Cost",
     "PRICEROUNDED":"Price rounded",
 
-
-    "PRODUCT":"Product Detail",
     "PRODUCTHEADER":"Category",
+    "PRODUCT":"Product",
+    "PRODUCTDETAIL":"Product Detail",
     "SUPPLIER":"Supplier",
+    "SUPPLIERPRICE":"Supplier price",
+    "SUPPLIERPRODCODE":"Supplier product code",
     "BRANCHE":"Branche",
     "PROFILE":"Profile",
     "CLIENT":"CLient",

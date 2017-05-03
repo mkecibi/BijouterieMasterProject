@@ -38,9 +38,12 @@
     "COST":"Coût",
     "PRICEROUNDED":"Prix arrondis",
 
-    "PRODUCT":"Détail du produit",
     "PRODUCTHEADER":"Catégorie",
+    "PRODUCT":"Produit",
+    "PRODUCTDETAIL":"Détail du produit",
     "SUPPLIER":"Fournisseur",
+    "SUPPLIERPRICE":"Prix du fournisseur",
+    "SUPPLIERPRODCODE":"Code produit fournisseur",
     "BRANCHE":"Branche",
     "PROFILE":"Profil",
     "CLIENT":"CLient",

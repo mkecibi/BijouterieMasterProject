@@ -39,9 +39,12 @@
     "PRICEROUNDED":"سعر مدورة",
 
 
-    "PRODUCT":"تفاصيل المنتج",
     "PRODUCTHEADER":"الفئة",
+    "PRODUCT":"المنتج",
+    "PRODUCTDETAIL":"تفاصيل المنتج",
     "SUPPLIER":"المورد",
+    "SUPPLIERPRICE":"سعر المورد",
+    "SUPPLIERPRODCODE":"المورد رمز المنتج",
     "BRANCHE":"فرع",
     "PROFILE":"الملف الشخصي",
     "CLIENT":"زبون",
