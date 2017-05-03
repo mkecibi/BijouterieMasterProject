@@ -63,7 +63,6 @@ class BrancheRoute extends routeBase.BaseRoute {
         });
         router.get("/deletebranche/:id", this.prototype.ensureAuthenticated,function(req, res, next) {
                     brancheVML.delete(db,req.params.id).then(function () {
-                            req.flash("info", "Profile updated!");
                             res.redirect("/branches");
                 })
                         .catch(function (err) {

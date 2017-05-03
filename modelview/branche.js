@@ -58,7 +58,7 @@ class BrancheViewModel {
         return    db.Branche.forge({
                                         name:  body.nameadd || branche.get('name'),
                                         address:body.addressadd || branche.get('address'),
-                                        isactive:body.isactiveadd || branche.get('isactive')
+                                        isactive:((body.isactiveadd == "on") ? 1 : 0)
             })
             .save()
             .then(function (branche) {
@@ -74,7 +74,7 @@ class BrancheViewModel {
 //***************************** Add Update******************************************** */
 //***************************** Add Update******************************************** */
     update(db,body){
-                return db.Branche.forge({id: body.id})
+                return db.Branche.forge({id: body.idedit})
                                 .fetch({require: true})
                                 .then(function (branche) {
                                 branche.save({
@@ -99,8 +99,8 @@ class BrancheViewModel {
                                 .then(function (branche) {
                                 branche.destroy()
                                 .then(function () {
-                                      console.log("branche successfully deleted");
-                                })
+                                    return true;
+                                 })
                                 .catch(function (err) {
                                     return err;
                                 });

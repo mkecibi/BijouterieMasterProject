@@ -199,9 +199,8 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                         <% if (productheaders) { %>
                              <span class="select">
                                     <label class="arrow glyphicon glyphicon-menu-down"></label>
-                                <select id="productheaderladd" name="productheaderladd" >
+                                <select id="productheaderladd" name="productheaderladd" required>
                                     <optgroup label="Select product header">
-                                            <option name="" value="0">Select product header</option>
                                         <% productheaders.forEach(function(productheader) { %>
                                             <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
                                         <% }) %>

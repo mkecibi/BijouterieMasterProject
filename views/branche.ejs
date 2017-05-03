@@ -93,7 +93,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                                         <td ><%= branche.isactive %></td>
                                         <td>
                                             <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" onclick="fillEdit('<%= branche.id %>','<%= branche.name %>','<%= branche.address %>','<%= branche.isactive %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
-                                            <div class="col-xs-3 col-md-6 noPadLR "><a href="/delete/<%= branche.id %>"><i class="fa fa-trash-o"></i></a></div>
+                                            <div class="col-xs-3 col-md-6 noPadLR "><a href="/deletebranche/<%= branche.id %>"><i class="fa fa-trash-o"></i></a></div>
                                         </td>
                                     </tr>
                                 <% }) %>
@@ -149,7 +149,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                 <div class="form-group col-sm-12">
                     <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
-                   <form  action="/brancheedit" method="post">
+                   <form  action="/editbranche" method="post">
                             <div  class="form-group col-md-6">
                                 <input type="hidden" id="idedit"  name="idedit" value="">
                                 <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"  required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
