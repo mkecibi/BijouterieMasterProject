@@ -330,12 +330,12 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                         <select  id="productheaderledit" name="productheaderledit" >
                               <optgroup label="Select product header">
                                     <script>
-                                    var globalproductheaders = [];
+                                  //  var globalproductheaders = [];
                                       /*  const objSentFromSrv = <%-JSON.stringify(productheaders)%>;   ca vonctionne  cool */
                                     </script>
                                   <% productheaders.forEach(function(productheader) { %>
                                     <script>
-                                    globalproductheaders["<%= productheader.id %>"] = ["<%= productheader.name %>"];
+                                 //   globalproductheaders["<%= productheader.id %>"] = ["<%= productheader.name %>"];
                                     </script>
                                     <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
                                     <% }) %>

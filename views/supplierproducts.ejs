@@ -80,12 +80,12 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
   				<tr>
   					<th><%= translation.SUPPLIER %></th>
   					<th><%= translation.PRODUCT %></th>
-            <th><%= translation.COMMENT %></th>
+                    <th><%= translation.COMMENT %></th>
   					<th><%= translation.SUPPLIERPRODCODE %></th>
   					<th><%= translation.SUPPLIERPRICE %></th>
-            <th><%= translation.QUANTITY %></th>
-            <th><%= translation.ISACTIVE %></th>
-            <th><%= translation.ACTION %></th>
+                    <th><%= translation.QUANTITY %></th>
+                    <th><%= translation.ISACTIVE %></th>
+                    <th><%= translation.ACTION %></th>
 				</tr>
 				</thead>
 				<tbody>
@@ -100,8 +100,8 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
               <td ><%= supplierproduct.isactive %></td>
               <td>
             <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
-            onclick="fillEdit('<%= supplierproduct.supplierid %>','<%= supplierproduct.productid %>','<%= supplierproduct.comment %>','<%= supplierproduct.productsuppliercode %>','<%= supplierproduct.supplierprice %>',
-            '<%= product.quantity %>','<%= product.isactive %>','<%= product.tps %>','<%= product.tvq %>','<%= product.taxany %>','<%= product.ecofee %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+            onclick="fillEdit('<%= supplierproduct.id %>','<%= supplierproduct.supplierid %>','<%= supplierproduct.productid %>','<%= supplierproduct.comment %>','<%= supplierproduct.productsuppliercode %>','<%= supplierproduct.supplierprice %>',
+            '<%= product.quantity %>','<%= product.tps %>','<%= product.tvq %>','<%= product.taxany %>','<%= product.ecofee %>','<%= product.isactive %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
 
 							<div class="col-xs-3 col-md-6 noPadLR "><a href="/deleteproduct/<%= product.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
@@ -120,8 +120,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                     <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
                     <form action="/createproduct" method="post">
-                       
-                       
+            
                        <div class="form-group col-md-6">
                             <% if (suppliers) { %>
                                 <span class="select">
@@ -154,7 +153,7 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                       
                         <div  class="form-group col-md-6">
                           
-                        <input  type="text" id="codeadd" name="productsuppliercodedd" placeholder="<%= translation.CODE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
+                        <input  type="text" id="productsuppliercodeadd" name="productsuppliercodeadd" placeholder="<%= translation.CODE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
                                     oninput="setCustomValidity('')"   >
                         </div>
 
@@ -164,33 +163,8 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                         </div>
 
                         <div  class="form-group col-md-6">
-                       <input  type="color" id="coloradd" name="coloradd" placeholder="<%= translation.COLOR %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-                        <div  class="form-group col-md-6">
-                       <input  type="number" step="any" id="weightadd" name="weightadd" placeholder="<%= translation.WEIGHT %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >   
-                        </div>
-
-                        <div  class="form-group col-md-6">
-                       <input  type="text" id="uomadd" name="uomadd" placeholder="<%= translation.UOM %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-                        <div  class="form-group col-md-6">
-                       <input  type="number" step="any" id="priceadd" name="priceadd" placeholder="<%= translation.PRICE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >  
-                        </div>
-
-                        <div  class="form-group col-md-6">
                        <input  type="number" step="any" id="quantityadd" name="quantityadd" placeholder="<%= translation.QUANTITY %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
                                     oninput="setCustomValidity('')"  >  
-                        </div>
-
-                       <div  class="form-group col-md-6">
-                       <input  type="text" id="Iamgeurladd" name="Iamgeurladd" placeholder="<%= translation.IMAGEURL %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
-                                    oninput="setCustomValidity('')"  >
                         </div>
 
                         <div  class="form-group col-md-6">
@@ -209,32 +183,12 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                        <input  type="number" step="any" id="ecofeeadd" name="ecofeeadd" placeholder="<%= translation.ECOFEE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
                                     oninput="setCustomValidity('')"  >  
                         </div>
-
-                        <div class="form-group col-md-6">
-                        <% if (productheaders) { %>
-                             <span class="select">
-                                    <label class="arrow glyphicon glyphicon-menu-down"></label>
-                                <select id="productheaderladd" name="productheaderladd" required>
-                                    <optgroup label="Select product header">
-                                        <% productheaders.forEach(function(productheader) { %>
-                                            <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
-                                        <% }) %>
-                                   </optgroup>
-                               </select>
-                              </span>    
-                        <% } %>
-                        </div>   
-
-                        <br > <br >
+ 
+                         <br > <br >
 
                          <div  class="form-group col-md-6">
-                          <input id="instockadd" name="instockadd"  class="customCheckBox"  type="checkbox">
-                          <label for="instockadd" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
-                         </div>
-
-                        <div  class="form-group col-md-6">
                           <input id="isactiveadd" name="isactiveadd"  class="customCheckBox"  type="checkbox">
-                          <label for="isactiveadd" class="customCheckBox-label"><%= translation.INSTOCK %></label>
+                          <label for="isactiveadd" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
                          </div>
                         <div class="clearfix space0"></div>
                         <div class="form-group col-md-3 col-xs-6 noMarB">
@@ -256,129 +210,89 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
                 <div class="form-group col-sm-12">
                     <p>(*) <%= translation.FIELDSMANDATORY %></p>
                     </div>
-               <form action="/editproduct" method="post">
-
-                       <div class="col-sm-8 fa  "><%= translation.IMAGEURL %> </div>
-                        <div  class="form-group col-md-6">
-                        <input  type="text" id="Iamgeurledit" name="Iamgeurledit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.NAME %></div>
-                        <div  class="form-group col-md-6">
-                        <input type="hidden" id="idedit"  name="idedit" value="" >
-                        <input  type="text" id="nameedit" name="nameedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
-                                    oninput="setCustomValidity('')"  autofocus >
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.CODE %></div>
-                        <div  class="form-group col-md-6">
-                         <input  type="text" id="codeedit" name="codeedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.COMMENT %> </div>
-                        <div  class="form-group col-md-6">
-                         <input  type="text" id="commentedit" name="commentedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.COLOR %> </div>
-                        <div  class="form-group col-md-6">
-                        <input  type="color" id="coloredit" name="coloredit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.WEIGHT %> </div>
-                        <div  class="form-group col-md-6">
-                        <input  type="number" step="any" id="weightedit" name="weightedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >  
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.UOM %> </div>
-                        <div  class="form-group col-md-6">
-                        <input  type="text" id="uomedit" name="uomedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.PRICE %> </div>
-                        <div  class="form-group col-md-6">
-                        <input  type="number" step="any" id="priceedit" name="priceedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  > 
-                        </div>
-
-                       <div class="col-sm-8 fa  "><%= translation.QUANTITY %> </div>
-                        <div  class="form-group col-md-6">
-                        <input  type="number" step="any" id="quantityedit" name="quantityedit" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >
-                        </div>
-
-
-                       <div class="col-sm-8 fa  "><%= translation.TPS %> </div>
-                        <div  class="form-group col-md-6">
-                       <input  type="number" step="any" id="tpsedit" name="tpsedit"  value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >  
-                        </div>
-                       <div class="col-sm-8 fa  "><%= translation.QSt %> </div>
-                       <div  class="form-group col-md-6">
-                       <input  type="number" step="any" id="tvqedit" name="tvqedit"  value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >  
-                        </div>
-                       <div class="col-sm-8 fa  "><%= translation.TAX %> </div>
-                        <div  class="form-group col-md-6">
-                       <input  type="number" step="any" id="taxanyedit" name="taxanyedit"  value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >  
-                        </div>
-                       <div class="col-sm-8 fa  "><%= translation.ECOFEE %> </div>
-                        <div  class="form-group col-md-6">
-                       <input  type="number" step="any" id="ecofeeedit" name="ecofeeedit"  value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
-                                    oninput="setCustomValidity('')"  >  
-                        </div>
-
-
-
-                       <div class="col-sm-8 fa  "><%= translation.NAME %></div>
+               <form action="/editsupplierproduct" method="post">
+                  
+                  <div class="form-group col-md-6">
+                            <% if (suppliers) { %>
+                                <span class="select">
+                                        <label class="arrow glyphicon glyphicon-menu-down"></label>
+                                    <select id="supplieredit" name="supplieredit" required>
+                                        <optgroup label="Select supplier header">
+                                            <% suppliers.forEach(function(supplier) { %>
+                                                <option name="<%= supplier.name %>" value="<%= supplier.id %>"><%= supplier.name %></option>
+                                            <% }) %>
+                                      </optgroup>
+                                  </select>
+                                  </span>    
+                            <% } %>
+                        </div>   
+                       
                         <div class="form-group col-md-6">
-                        <% if (productheaders) { %>
-                             <span class="select">
-                                    <label class="arrow glyphicon glyphicon-menu-down"></label>
-                        <select  id="productheaderledit" name="productheaderledit" >
-                              <optgroup label="Select product header">
-                                    <script>
-                                    var globalproductheaders = [];
-                                      /*  const objSentFromSrv = <%-JSON.stringify(productheaders)%>;   ca vonctionne  cool */
-                                    </script>
-                                  <% productheaders.forEach(function(productheader) { %>
-                                    <script>
-                                    globalproductheaders["<%= productheader.id %>"] = ["<%= productheader.name %>"];
-                                    </script>
-                                    <option name="<%= productheader.name %>" value="<%= productheader.id %>"><%= productheader.name %></option>
-                                    <% }) %>
-                              </optgroup>
-                        </select>
-                              </span>    
-                        <% } %>
-                        </div>  
+                            <% if (products) { %>
+                                <span class="select">
+                                        <label class="arrow glyphicon glyphicon-menu-down"></label>
+                                    <select id="productedit" name="productedit" required>
+                                        <optgroup label="Select product header">
+                                            <% products.forEach(function(product) { %>
+                                                <option name="<%= product.name %>" value="<%= product.id %>"><%= product.name %></option>
+                                            <% }) %>
+                                      </optgroup>
+                                  </select>
+                                  </span>    
+                            <% } %>
+                        </div>   
+                      
+                        <div  class="form-group col-md-6">
+                          
+                        <input  type="text" id="productsuppliercodeedit" name="productsuppliercodeedit" placeholder="<%= translation.CODE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
+                                    oninput="setCustomValidity('')"   >
+                        </div>
 
-                        <br > <br >
+                        <div  class="form-group col-md-6">
+                       <input  type="text" id="commentedit" name="commentedit" placeholder="<%= translation.COMMENT %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_TEXT %>')"
+                                    oninput="setCustomValidity('')"  >
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="quantityedit" name="quantityedit" placeholder="<%= translation.QUANTITY %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+
+                       <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="supplierpriceedit" name="supplierpriceedit" placeholder="<%= translation.PRICE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+
+                        <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="tpsedit" name="tpsedit" placeholder="<%= translation.TPS %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                       <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="tvqedit" name="tvqedit" placeholder="<%= translation.QSt %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                        <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="taxanyedit" name="taxanyedit" placeholder="<%= translation.TAX %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+                        <div  class="form-group col-md-6">
+                       <input  type="number" step="any" id="ecofeeedit" name="ecofeeedit" placeholder="<%= translation.ECOFEE %>" value="" tabindex="1"   required  oninvalid="this.setCustomValidity('<%= translation.ERRORInvalide_NUMBER %>')"
+                                    oninput="setCustomValidity('')"  >  
+                        </div>
+ 
+                         <br > <br >
 
                          <div  class="form-group col-md-6">
-                          <input id="instockedit" name="instockedit"  class="customCheckBox"  type="checkbox">
-                          <label for="instockedit" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
-                         </div>
-
-                        <div  class="form-group col-md-6">
                           <input id="isactiveedit" name="isactiveedit"  class="customCheckBox"  type="checkbox">
-                          <label for="isactiveedit" class="customCheckBox-label"><%= translation.INSTOCK %></label>
+                          <label for="isactiveedit" class="customCheckBox-label"><%= translation.ISACTIVE %></label>
                          </div>
-
                         <div class="clearfix space0"></div>
-
                         <div class="form-group col-md-3 col-xs-6 noMarB">
                         <input class="submitBtn redBtn center" name="" value="<%= translation.SAVE %>" type="submit">
                         </div>
-                       
-          </form>
+
+                        </div>
+               </form>
 
       </div>
 
@@ -396,31 +310,37 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
   </div>
 </div>
 <script>
-function fillEdit(id,productheader_id,name ,code ,comment,color ,weight,uom ,price ,quantity,isactive ,imageurl,stock,
-tps ,tvq ,taxany,ecofee) {
+function fillEdit(id,supplierid,productid,comment,productsuppliercode,supplierprice,quantity,tps ,tvq ,taxany,ecofee,isactive) {
 
-    document.getElementById('productheaderledit').selectedIndex = productheader_id;
+     document.getElementById('productedit').selectedIndex = supplierid;
 
-    var ddl = document.getElementById('productheaderledit');
+    var ddl = document.getElementById('productedit');
     var opts = ddl.options.length;
     for (var i=0; i<opts; i++){
-        if (ddl.options[i].value == productheader_id){
+        if (ddl.options[i].value == supplierid){
             ddl.options[i].selected = true;
             break;
         }
-    }             
+    }        
+
+    document.getElementById('supplieredit').selectedIndex = productid;
+
+    var ddl = document.getElementById('supplieredit');
+    var opts = ddl.options.length;
+    for (var i=0; i<opts; i++){
+        if (ddl.options[i].value == productid){
+            ddl.options[i].selected = true;
+            break;
+        }
+    } 
+
+
     document.getElementById("idedit").value = id
-    document.getElementById("nameedit").value = name
-    document.getElementById("codeedit").value = code
+    document.getElementById("productsuppliercodeedit").value = productsuppliercode
     document.getElementById("commentedit").value = comment
-    document.getElementById("coloredit").value = color
-    document.getElementById("weightedit").value = weight
-    document.getElementById("uomedit").value = uom
-    document.getElementById("priceedit").value = price
+    document.getElementById("supplierpriceedit").value = supplierprice
     document.getElementById("quantityedit").value = quantity
     document.getElementById("isactiveedit").checked = ((isactive == 1) ? true : false)
-    document.getElementById("instockedit").checked = ((stock == 1) ? true : false)
-    document.getElementById("Iamgeurledit").value = imageurl
 
     document.getElementById("tpsedit").value = tps
     document.getElementById("tvqedit").value = tvq
