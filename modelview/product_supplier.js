@@ -8,7 +8,7 @@ class ProductSupplierViewModel {
     }
 //**************************************************************************************** */
 //**********************************getUsers******************************************* */    
-   getproduct_supplier(db){
+   getproducts_suppliers(db){
             return  db.ProductSupplier.ProductSuppliers.forge()
                         .fetch()
                         .then(function (collection) {

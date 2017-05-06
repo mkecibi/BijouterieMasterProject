@@ -52,6 +52,8 @@ db.ProductHeader  = modeles.ProductHeader
 db.Product  = modeles.Product 
 db.Branche  = modeles.Branche 
 
+db.ProductSupplier  = modeles.ProductSupplier 
+
 db.knex = knex;
 db.env = env;
 module.exports = db;

@@ -91,19 +91,19 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 				<tbody>
         <% supplierproducts.forEach(function(supplierproduct) { %>
 					<tr>
-              <td ><%= supplierproduct.suppliername %></td>
-              <td ><%= supplierproduct.productname %></td>
-              <td ><%= supplierproduct.comment %></td>
-              <td ><%= supplierproduct.productsuppliercode %></td>
-              <td ><%= supplierproduct.supplierprice %></td>
-              <td ><%= prodsupplierproductuct.quantity %></td>
-              <td ><%= supplierproduct.isactive %></td>
-              <td>
-            <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
-            onclick="fillEdit('<%= supplierproduct.id %>','<%= supplierproduct.supplierid %>','<%= supplierproduct.productid %>','<%= supplierproduct.comment %>','<%= supplierproduct.productsuppliercode %>','<%= supplierproduct.supplierprice %>',
-            '<%= product.quantity %>','<%= product.tps %>','<%= product.tvq %>','<%= product.taxany %>','<%= product.ecofee %>','<%= product.isactive %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
+                        <td ><%= supplierproduct.suppliername %></td>
+                        <td ><%= supplierproduct.productname %></td>
+                        <td ><%= supplierproduct.comment %></td>
+                        <td ><%= supplierproduct.productsuppliercode %></td>
+                        <td ><%= supplierproduct.supplierprice %></td>
+                        <td ><%= supplierproduct.quantity %></td>
+                        <td ><%= supplierproduct.isactive %></td>
+                        <td>
+                        <div class="col-xs-3 col-md-6 noPadLR "><a href="#edit" data-toggle="tab" 
+                                onclick="fillEdit('<%= supplierproduct.id %>','<%= supplierproduct.supplier_id %>','<%= supplierproduct.product_id %>','<%= supplierproduct.comment %>','<%= supplierproduct.productsuppliercode %>','<%= supplierproduct.supplierprice %>',
+                                '<%= supplierproduct.quantity %>','<%= supplierproduct.tps %>','<%= supplierproduct.tvq %>','<%= supplierproduct.taxany %>','<%= supplierproduct.ecofee %>','<%= supplierproduct.isactive %>') , ShowOnlyEdit() " ><i class="fa fa-edit"></i></a></div>
 
-							<div class="col-xs-3 col-md-6 noPadLR "><a href="/deleteproduct/<%= product.id %>"><i class="fa fa-trash-o"></i></a></div>
+                                    <div class="col-xs-3 col-md-6 noPadLR "><a href="/deleteproduct/<%= supplierproduct.id %>"><i class="fa fa-trash-o"></i></a></div>
 						</td>
 					</tr>
           <% }) %>
