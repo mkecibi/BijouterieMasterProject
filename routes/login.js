@@ -48,7 +48,7 @@ class LoginRoute extends routeBase.BaseRoute {
                             return res.redirect("/signup");
                             }
                             else {
-                                userVML.save(db,req.body).then(function (user) {
+                                userVML.save(db,req.body).then(function () {
                                         return res.redirect("/login");
                                     })
                                     .catch(function (err) {

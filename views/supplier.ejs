@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumen ElekNet - Settings (Options) Page</title>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.10.css" rel="stylesheet">
-<link href="css/font-awesome.css" rel="stylesheet">
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/ToggleNewPersonalCode.js"></script>
-<script src="js/bootstrap-tabcollapse.js"></script>
+<% include _header %>
 <style>
 
 @media	only screen and (max-width:768px){
@@ -39,8 +25,6 @@ table.ui-datepicker-calendar tr,table.ui-datepicker td{display:block;}
 
 </style>
 
-</head>
-<body >
 <div class="container-fluid">
 
   <div class="container breadCrumb ">
@@ -274,5 +258,4 @@ function ShowOnlyAdd() {
     $('#add-collapse').collapse('show');
 }
 </script>
-</body>
-</html>
+<% include _footer %>

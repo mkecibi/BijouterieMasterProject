@@ -36,41 +36,39 @@ class UserViewModel {
     }
 //**************************************************************************************** */
 //***************************** Add Update******************************************** */
-    save(db,body){
-                return db.User.forge({id: body.id})
-                                .fetch({require: true})
-                                .then(function (user) {
-                                user.save({
-                                        username:  body.usernameadd || user.get('username'),
-                                        email: body.emailadd || user.get('email'),
-                                        password:body.passwordadd || user.get('password'),
-                                        bio:body.bioadd || user.get('bio'),
-                                        client_id:body.client_idadd || user.get('client_id'),
-                                        isactive:body.isactiveadd || user.get('isactive')
-                                })
-                                .then(function () {
-                                      console.log("saved with success");
-                                })
-                                .catch(function (err) {
-                                    return err;
-                                });
-                                })
-                                .catch(function (err) {
-                                return err;});
-                };
 
+    save(db,body) {
+        return    db.User.forge({
+                                        username:  body.username ,
+                                        email: body.email,
+                                        password:body.password ,
+                                        bio:body.bio ,
+                                        client_id:body.client_id ,
+                                        isactive:body.isactive
+            })
+            .save()
+            .then(function (User) {
+            console.log("User saved with success");
+        //   return  Product
+            })
+            .catch(function (err) {
+                console.log("error to  saved : " + err.message);
+            return err;
+            }); 
+        };
+       
 //***************************** Add Update******************************************** */
     update(db,body){
                 return db.User.forge({id: body.id})
                                 .fetch({require: true})
                                 .then(function (user) {
                                 user.save({
-                                        username:  body.usernameedit || user.get('username'),
-                                        email: body.emailedit || user.get('email'),
-                                        password:body.passwordedit || user.get('password'),
-                                        bio:body.bioedit || user.get('bio'),
-                                        client_id:body.client_idedit || user.get('client_id'),
-                                        isactive:((body.isactiveedit == "on") ? 1 : 0)
+                                        username:  body.username || user.get('username'),
+                                        email: body.email || user.get('email'),
+                                        password:body.password || user.get('password'),
+                                        bio:body.bio || user.get('bio'),
+                                        client_id:body.client_id|| user.get('client_id'),
+                                        isactive:((body.isactive == "on") ? 1 : 0)
                                 })
                                 .then(function () {
                                       console.log("saved with success");
